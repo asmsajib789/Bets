@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetPro - Premium Betting Affiliates</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        :root {
+            --primary: #1e2b38;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --highlight: #3498db;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --gradient: linear-gradient(135deg, #3498db, #2ecc71);
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            min-height: 100vh;
+            padding-bottom: 80px;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 15px;
+            position: relative;
+        }
+        
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            color: white;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+        }
+        
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .notification {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--light);
+        }
+        
+        .notification:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        
+        .notification::after {
+            content: '3';
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 18px;
+            height: 18px;
+            background: var(--accent);
+            border-radius: 50%;
+            color: white;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        /* Marquee Styles */
+        .marquee-container {
+            background: rgba(231, 76, 60, 0.2);
+            padding: 12px 0;
+            margin: 15px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(231, 76, 60, 0.3);
+        }
+        
+        .marquee {
+            white-space: nowrap;
+            display: flex;
+            animation: marquee 20s linear infinite;
+        }
+        
+        .marquee-item {
+            display: inline-flex;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .marquee-item i {
+            color: var(--success);
+            margin-right: 8px;
+            font-size: 16px;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        /* Section Styles */
+        .section-title {
+            font-size: 18px;
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--highlight);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--light);
+        }
+        
+        .section-title i {
+            color: var(--highlight);
+            font-size: 20px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .card-header {
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .icon-1xbet { background: linear-gradient(45deg, #0a5a7e, #00a651); }
+        .icon-linebet { background: linear-gradient(45deg, #c0392b, #e74c3c); }
+        .icon-melbet { background: linear-gradient(45deg, #27ae60, #2ecc71); }
+        
+        .card-title {
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(to right, #fff, #ddd);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .features {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+        
+        .features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .features li:last-child {
+            border-bottom: none;
+        }
+        
+        .features li i {
+            color: var(--success);
+            min-width: 20px;
+            font-size: 16px;
+        }
+        
+        .affiliate-link {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .affiliate-link::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                rgba(255, 255, 255, 0.1),
+                rgba(255, 255, 255, 0)
+            );
+            transform: rotate(30deg);
+            transition: all 0.5s ease;
+        }
+        
+        .affiliate-link:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.5);
+        }
+        
+        .affiliate-link:hover::after {
+            transform: rotate(30deg) translate(10%, 10%);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--highlight);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .contact-text {
+            margin-bottom: 25px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 15px;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(to right, #25D366, #128C7E);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(18, 140, 126, 0.4);
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 7px 20px rgba(18, 140, 126, 0.6);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Popup Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .popup-container {
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            width: 90%;
+            max-width: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            transform: scale(0.9);
+            transition: transform 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .popup-overlay.active .popup-container {
+            transform: scale(1);
+        }
+        
+        .popup-header {
+            background: rgba(231, 76, 60, 0.9);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .popup-header i {
+            font-size: 48px;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .popup-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 5px;
+        }
+        
+        .popup-body {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .popup-text {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        .popup-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .popup-btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 16px;
+        }
+        
+        .btn-confirm {
+            background: linear-gradient(to right, #2ecc71, #27ae60);
+            color: white;
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+        }
+        
+        .btn-cancel {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .popup-btn:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* Animation Effects */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <div class="logo-icon">BP</div>
+                <div class="logo-text">BetPro</div>
+            </div>
+            <div class="notification">
+                <i class="fas fa-bell"></i>
+            </div>
+        </header>
+        
+        <!-- Marquee -->
+        <div class="marquee-container">
+            <div class="marquee">
+                <div class="marquee-item"><i class="fas fa-gift"></i> New users get 200% bonus up to $200</div>
+                <div class="marquee-item"><i class="fas fa-coins"></i> Daily cashback up to 10%</div>
+                <div class="marquee-item"><i class="fas fa-trophy"></i> Refer friends and earn $50 per referral</div>
+                <div class="marquee-item"><i class="fas fa-shield-alt"></i> Secure and licensed betting platforms</div>
+            </div>
+        </div>
+        
+        <!-- 1xBet Section -->
+        <h2 class="section-title"><i class="fas fa-crown"></i> 1xBet - Premium Betting</h2>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon icon-1xbet">
+                    <i class="fas fa-dice"></i>
+                </div>
+                <div class="card-title">1xBet</div>
+            </div>
+            <div class="card-body">
+                <ul class="features">
+                    <li><i class="fas fa-check-circle"></i> 200% welcome bonus up to $200</li>
+                    <li><i class="fas fa-check-circle"></i> 50,000+ monthly events</li>
+                    <li><i class="fas fa-check-circle"></i> Live streaming available</li>
+                    <li><i class="fas fa-check-circle"></i> Fast withdrawals within 15 minutes</li>
+                </ul>
+                <button class="affiliate-link" data-link="https://1xbet.com/affiliate" data-site="1xBet">
+                    GET BONUS NOW
+                </button>
+            </div>
+        </div>
+        
+        <!-- LineBet Section -->
+        <h2 class="section-title"><i class="fas fa-chart-line"></i> LineBet - Best Odds</h2>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon icon-linebet">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <div class="card-title">LineBet</div>
+            </div>
+            <div class="card-body">
+                <ul class="features">
+                    <li><i class="fas fa-check-circle"></i> 100% first deposit bonus up to $150</li>
+                    <li><i class="fas fa-check-circle"></i> Highest odds in the market</li>
+                    <li><i class="fas fa-check-circle"></i> 24/7 customer support</li>
+                    <li><i class="fas fa-check-circle"></i> Weekly free bets for active users</li>
+                </ul>
+                <button class="affiliate-link" data-link="https://linebet.com/affiliate" data-site="LineBet">
+                    JOIN LINEBET
+                </button>
+            </div>
+        </div>
+        
+        <!-- MelBet Section -->
+        <h2 class="section-title"><i class="fas fa-gem"></i> MelBet - Exclusive Offers</h2>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon icon-melbet">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <div class="card-title">MelBet</div>
+            </div>
+            <div class="card-body">
+                <ul class="features">
+                    <li><i class="fas fa-check-circle"></i> $30 free bet for registration</li>
+                    <li><i class="fas fa-check-circle"></i> 15% cashback on losses</li>
+                    <li><i class="fas fa-check-circle"></i> Exclusive VIP program</li>
+                    <li><i class="fas fa-check-circle"></i> Mobile app with special features</li>
+                </ul>
+                <button class="affiliate-link" data-link="https://melbet.com/affiliate" data-site="MelBet">
+                    CLAIM $30 FREE BET
+                </button>
+            </div>
+        </div>
+        
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h2 class="contact-title">Need Assistance?</h2>
+            <p class="contact-text">Our support team is available 24/7 to help with any questions or issues you might have. Click below to chat with us on WhatsApp!</p>
+            <a href="https://wa.me/1234567890" class="whatsapp-btn pulse">
+                <i class="fab fa-whatsapp"></i> Live Chat on WhatsApp
+            </a>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <p>© 2023 BetPro Affiliates. All rights reserved.</p>
+            <p>18+ | Gamble responsibly | Terms apply</p>
+        </footer>
+    </div>
+
+    <!-- Popup Overlay -->
+    <div class="popup-overlay" id="exitPopup">
+        <div class="popup-container">
+            <div class="popup-header">
+                <i class="fas fa-external-link-alt float"></i>
+                <h2 class="popup-title">Leaving Our Site</h2>
+            </div>
+            <div class="popup-body">
+                <p class="popup-text" id="popupMessage">
+                    You are about to visit an external betting site. Please ensure you meet the legal age requirements in your jurisdiction.
+                </p>
+                <div class="popup-buttons">
+                    <button class="popup-btn btn-cancel" id="cancelBtn">Cancel</button>
+                    <button class="popup-btn btn-confirm" id="confirmBtn">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Exit Popup Functionality
+        const popup = document.getElementById('exitPopup');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const confirmBtn = document.getElementById('confirmBtn');
+        const popupMessage = document.getElementById('popupMessage');
+        
+        let targetLink = '';
+        let targetSite = '';
+        
+        // Attach event listeners to affiliate links
+        document.querySelectorAll('.affiliate-link').forEach(button => {
+            button.addEventListener('click', function() {
+                targetLink = this.getAttribute('data-link');
+                targetSite = this.getAttribute('data-site');
+                popupMessage.innerHTML = `You are about to visit <strong>${targetSite}</strong>. Please ensure you meet the legal age requirements in your jurisdiction.`;
+                popup.classList.add('active');
+                docu
