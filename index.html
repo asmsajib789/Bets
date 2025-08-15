@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BetPro - Premium Betting Affiliates</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -19,11 +19,13 @@
             --secondary: #2c3e50;
             --accent: #e74c3c;
             --highlight: #3498db;
-            --success: #2ecc71;
+            --success: #27ae60;
             --warning: #f39c12;
             --light: #ecf0f1;
             --dark: #1a252f;
-            --gradient: linear-gradient(135deg, #3498db, #2ecc71);
+            --1xbet: #0066b3;
+            --linebet: #27ae60;
+            --melbet: #f39c12;
         }
         
         body {
@@ -64,7 +66,7 @@
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: var(--gradient);
+            background: linear-gradient(135deg, #3498db, #2ecc71);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -120,6 +122,91 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
+        }
+        
+        /* Notification Dropdown */
+        .notification-dropdown {
+            position: absolute;
+            top: 60px;
+            right: 15px;
+            width: 300px;
+            background: rgba(30, 43, 56, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 200;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .notification-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .notification-header {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .notification-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .mark-read {
+            color: var(--highlight);
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .notification-list {
+            list-style: none;
+        }
+        
+        .notification-item {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .notification-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .notification-item.unread {
+            background: rgba(52, 152, 219, 0.1);
+        }
+        
+        .notification-content {
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .notification-icon {
+            color: var(--highlight);
+            font-size: 16px;
+            min-width: 20px;
+            margin-top: 2px;
+        }
+        
+        .notification-time {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            text-align: right;
         }
         
         /* Marquee Styles */
@@ -207,11 +294,16 @@
             font-size: 24px;
             color: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
         }
         
-        .icon-1xbet { background: linear-gradient(45deg, #0a5a7e, #00a651); }
-        .icon-linebet { background: linear-gradient(45deg, #c0392b, #e74c3c); }
-        .icon-melbet { background: linear-gradient(45deg, #27ae60, #2ecc71); }
+        .card-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: white;
+            padding: 5px;
+        }
         
         .card-title {
             font-size: 22px;
@@ -254,7 +346,7 @@
             display: block;
             width: 100%;
             padding: 14px;
-            background: var(--gradient);
+            background: linear-gradient(to right, var(--highlight), #8e44ad);
             color: white;
             text-align: center;
             text-decoration: none;
@@ -388,9 +480,9 @@
         }
         
         .popup-header {
-            background: rgba(231, 76, 60, 0.9);
             padding: 20px;
             text-align: center;
+            background: linear-gradient(45deg, var(--linebet), #219653);
         }
         
         .popup-header i {
@@ -418,6 +510,57 @@
             font-size: 16px;
         }
         
+        .popup-bonus-info {
+            background: rgba(39, 174, 96, 0.15);
+            border-left: 4px solid var(--linebet);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .bonus-title {
+            font-weight: 600;
+            color: var(--success);
+            margin-bottom: 5px;
+        }
+        
+        .bonus-details {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .bonus-item {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .bonus-value {
+            font-weight: 700;
+            color: var(--success);
+            font-size: 18px;
+        }
+        
+        .bonus-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .promo-code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 600;
+            color: var(--success);
+            border: 1px dashed var(--success);
+            margin: 10px 0;
+        }
+        
         .popup-buttons {
             display: flex;
             gap: 15px;
@@ -432,10 +575,11 @@
             transition: all 0.3s ease;
             border: none;
             font-size: 16px;
+            flex: 1;
         }
         
         .btn-confirm {
-            background: linear-gradient(to right, #2ecc71, #27ae60);
+            background: linear-gradient(to right, var(--linebet), #219653);
             color: white;
             box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
         }
@@ -460,16 +604,6 @@
         .pulse {
             animation: pulse 2s infinite;
         }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .float {
-            animation: float 3s ease-in-out infinite;
-        }
     </style>
 </head>
 <body>
@@ -480,8 +614,46 @@
                 <div class="logo-icon">BP</div>
                 <div class="logo-text">BetPro</div>
             </div>
-            <div class="notification">
+            <div class="notification" id="notificationBtn">
                 <i class="fas fa-bell"></i>
+            </div>
+            
+            <!-- Notification Dropdown -->
+            <div class="notification-dropdown" id="notificationDropdown">
+                <div class="notification-header">
+                    <div class="notification-title">Notifications</div>
+                    <div class="mark-read">Mark all as read</div>
+                </div>
+                <ul class="notification-list">
+                    <li class="notification-item unread">
+                        <div class="notification-content">
+                            <div class="notification-icon"><i class="fas fa-gift"></i></div>
+                            <div>New bonus available! Get 200% bonus on your first deposit at 1xBet</div>
+                        </div>
+                        <div class="notification-time">10 minutes ago</div>
+                    </li>
+                    <li class="notification-item unread">
+                        <div class="notification-content">
+                            <div class="notification-icon"><i class="fas fa-users"></i></div>
+                            <div>Your referral signed up! You earned $25 in commission</div>
+                        </div>
+                        <div class="notification-time">2 hours ago</div>
+                    </li>
+                    <li class="notification-item">
+                        <div class="notification-content">
+                            <div class="notification-icon"><i class="fas fa-trophy"></i></div>
+                            <div>Weekly leaderboard updated - you're in top 10!</div>
+                        </div>
+                        <div class="notification-time">Yesterday</div>
+                    </li>
+                    <li class="notification-item">
+                        <div class="notification-content">
+                            <div class="notification-icon"><i class="fas fa-shield-alt"></i></div>
+                            <div>Security alert: We've enhanced our login protection</div>
+                        </div>
+                        <div class="notification-time">3 days ago</div>
+                    </li>
+                </ul>
             </div>
         </header>
         
@@ -491,126 +663,9 @@
                 <div class="marquee-item"><i class="fas fa-gift"></i> New users get 200% bonus up to $200</div>
                 <div class="marquee-item"><i class="fas fa-coins"></i> Daily cashback up to 10%</div>
                 <div class="marquee-item"><i class="fas fa-trophy"></i> Refer friends and earn $50 per referral</div>
-                <div class="marquee-item"><i class="fas fa-shield-alt"></i> Secure and licensed betting platforms</div>
             </div>
         </div>
         
         <!-- 1xBet Section -->
         <h2 class="section-title"><i class="fas fa-crown"></i> 1xBet - Premium Betting</h2>
-        <div class="card">
-            <div class="card-header">
-                <div class="card-icon icon-1xbet">
-                    <i class="fas fa-dice"></i>
-                </div>
-                <div class="card-title">1xBet</div>
-            </div>
-            <div class="card-body">
-                <ul class="features">
-                    <li><i class="fas fa-check-circle"></i> 200% welcome bonus up to $200</li>
-                    <li><i class="fas fa-check-circle"></i> 50,000+ monthly events</li>
-                    <li><i class="fas fa-check-circle"></i> Live streaming available</li>
-                    <li><i class="fas fa-check-circle"></i> Fast withdrawals within 15 minutes</li>
-                </ul>
-                <button class="affiliate-link" data-link="https://1xbet.com/affiliate" data-site="1xBet">
-                    GET BONUS NOW
-                </button>
-            </div>
-        </div>
-        
-        <!-- LineBet Section -->
-        <h2 class="section-title"><i class="fas fa-chart-line"></i> LineBet - Best Odds</h2>
-        <div class="card">
-            <div class="card-header">
-                <div class="card-icon icon-linebet">
-                    <i class="fas fa-chart-bar"></i>
-                </div>
-                <div class="card-title">LineBet</div>
-            </div>
-            <div class="card-body">
-                <ul class="features">
-                    <li><i class="fas fa-check-circle"></i> 100% first deposit bonus up to $150</li>
-                    <li><i class="fas fa-check-circle"></i> Highest odds in the market</li>
-                    <li><i class="fas fa-check-circle"></i> 24/7 customer support</li>
-                    <li><i class="fas fa-check-circle"></i> Weekly free bets for active users</li>
-                </ul>
-                <button class="affiliate-link" data-link="https://linebet.com/affiliate" data-site="LineBet">
-                    JOIN LINEBET
-                </button>
-            </div>
-        </div>
-        
-        <!-- MelBet Section -->
-        <h2 class="section-title"><i class="fas fa-gem"></i> MelBet - Exclusive Offers</h2>
-        <div class="card">
-            <div class="card-header">
-                <div class="card-icon icon-melbet">
-                    <i class="fas fa-gem"></i>
-                </div>
-                <div class="card-title">MelBet</div>
-            </div>
-            <div class="card-body">
-                <ul class="features">
-                    <li><i class="fas fa-check-circle"></i> $30 free bet for registration</li>
-                    <li><i class="fas fa-check-circle"></i> 15% cashback on losses</li>
-                    <li><i class="fas fa-check-circle"></i> Exclusive VIP program</li>
-                    <li><i class="fas fa-check-circle"></i> Mobile app with special features</li>
-                </ul>
-                <button class="affiliate-link" data-link="https://melbet.com/affiliate" data-site="MelBet">
-                    CLAIM $30 FREE BET
-                </button>
-            </div>
-        </div>
-        
-        <!-- Contact Section -->
-        <div class="contact-section">
-            <h2 class="contact-title">Need Assistance?</h2>
-            <p class="contact-text">Our support team is available 24/7 to help with any questions or issues you might have. Click below to chat with us on WhatsApp!</p>
-            <a href="https://wa.me/1234567890" class="whatsapp-btn pulse">
-                <i class="fab fa-whatsapp"></i> Live Chat on WhatsApp
-            </a>
-        </div>
-        
-        <!-- Footer -->
-        <footer>
-            <p>© 2023 BetPro Affiliates. All rights reserved.</p>
-            <p>18+ | Gamble responsibly | Terms apply</p>
-        </footer>
-    </div>
-
-    <!-- Popup Overlay -->
-    <div class="popup-overlay" id="exitPopup">
-        <div class="popup-container">
-            <div class="popup-header">
-                <i class="fas fa-external-link-alt float"></i>
-                <h2 class="popup-title">Leaving Our Site</h2>
-            </div>
-            <div class="popup-body">
-                <p class="popup-text" id="popupMessage">
-                    You are about to visit an external betting site. Please ensure you meet the legal age requirements in your jurisdiction.
-                </p>
-                <div class="popup-buttons">
-                    <button class="popup-btn btn-cancel" id="cancelBtn">Cancel</button>
-                    <button class="popup-btn btn-confirm" id="confirmBtn">Continue</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Exit Popup Functionality
-        const popup = document.getElementById('exitPopup');
-        const cancelBtn = document.getElementById('cancelBtn');
-        const confirmBtn = document.getElementById('confirmBtn');
-        const popupMessage = document.getElementById('popupMessage');
-        
-        let targetLink = '';
-        let targetSite = '';
-        
-        // Attach event listeners to affiliate links
-        document.querySelectorAll('.affiliate-link').forEach(button => {
-            button.addEventListener('click', function() {
-                targetLink = this.getAttribute('data-link');
-                targetSite = this.getAttribute('data-site');
-                popupMessage.innerHTML = `You are about to visit <strong>${targetSite}</strong>. Please ensure you meet the legal age requirements in your jurisdiction.`;
-                popup.classList.add('active');
-                docu
+        <d
