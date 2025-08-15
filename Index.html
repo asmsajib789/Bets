@@ -665,9 +665,107 @@
         </div>
     </section>
 
-    <!-- Footer -->
+       <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-       
+                    <h3>About Me</h3>
+                    <p>I'm a full-stack developer specializing in creating innovative digital solutions including Telegram bots, WhatsApp integrations, and responsive web applications.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projects</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Terms & Conditions</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Cookie Policy</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Disclaimer</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Service Agreement</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</a></li>
+                        <li><a href="mailto:contact@sazib.dev"><i class="fas fa-envelope"></i> contact@sazib.dev</a></li>
+                        <li><a href="tel:+880123456789"><i class="fas fa-phone"></i> +880 1234 56789</a></li>
+                        <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp: +880 1234 56789</a></li>
+                        <li><a href="#"><i class="fab fa-telegram"></i> Telegram: @sazib_dev</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 A S M SAZIB. All Rights Reserved. Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> by King</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll progress indicator
+        window.onscroll = function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handling
+        const contactForm = document.querySelector('.contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // In a real application, you would send this data to a server
+            alert(`Thank you ${name}! Your message has been sent. I'll contact you at ${email} soon.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+
+        // Add pulse animation to profile pic
+        const profilePic = document.querySelector('.profile-pic');
+        profilePic.addEventListener('mouseover', () => {
+            profilePic.classList.add('pulse');
+        });
+        
+        profilePic.addEventListener('mouseout', () => {
+            profilePic.classList.remove('pulse');
+        });
+    </script>
+</body>
+</html>
