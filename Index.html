@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A S M SAZIB | Portfolio</title>
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
-            padding: 3px;
+            padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -20,13 +20,14 @@
             --light: #f7f7f7;
             --accent: #fd79a8;
             --progress-height: 6px;
+            --header-height: 70px;
         }
 
         body {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             color: var(--light);
             overflow-x: hidden;
-            padding-top: 60px; /* Space for fixed header */
+            padding-top: var(--header-height);
         }
 
         /* Scroll progress bar */
@@ -51,12 +52,12 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 3, 3;
+            padding: 0 20px;
         }
 
         /* Header Styles */
         header {
-            background: rgba(26, 26, 46, 0.9);
+            background: rgba(26, 26, 46, 0.95);
             backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
@@ -65,12 +66,49 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             border-bottom: 1px solid rgba(108, 92, 231, 0.3);
             padding: 10px 0;
+            height: var(--header-height);
         }
 
         .header-content {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #dfe6e9;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .profile {
@@ -86,12 +124,13 @@
             border: 2px solid var(--primary);
             overflow: hidden;
             box-shadow: 0 0 15px rgba(108, 92, 231, 0.5);
-        }
-
-        .profile-pic img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            background: linear-gradient(45deg, #a29bfe, #6c5ce7, #fd79a8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
         }
 
         .profile-name {
@@ -104,7 +143,7 @@
 
         /* Hero Section */
         .hero {
-            height: calc(100vh - 60px);
+            height: calc(100vh - var(--header-height));
             display: flex;
             align-items: center;
             position: relative;
@@ -124,9 +163,10 @@
         }
 
         .hero-content {
-            max-width: 700px;
+            max-width: 800px;
             text-align: center;
             margin: 0 auto;
+            padding: 20px;
         }
 
         .hero h1 {
@@ -136,6 +176,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            line-height: 1.2;
         }
 
         .hero p {
@@ -246,7 +287,7 @@
         }
 
         .project-content {
-            padding: 25px,0;
+            padding: 25px;
         }
 
         .project-content h3 {
@@ -276,6 +317,40 @@
             font-size: 0.85rem;
         }
 
+        /* Skills Section */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .skill-category h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill-item {
+            background: rgba(108, 92, 231, 0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-item i {
+            color: var(--accent);
+        }
+
         /* Contact Section */
         .contact {
             background: rgba(26, 26, 46, 0.7);
@@ -286,16 +361,12 @@
 
         .contact-form {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 25px;
         }
 
         .form-group {
             margin-bottom: 20px;
-        }
-
-        .form-group.full-width {
-            grid-column: 1 / -1;
         }
 
         label {
@@ -337,9 +408,11 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
-            justify-self: start;
             position: relative;
             overflow: hidden;
+            width: 100%;
+            max-width: 250px;
+            margin: 0 auto;
         }
 
         .submit-btn::after {
@@ -454,57 +527,6 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive Design */
-        @media (max-width: 900px) {
-            .contact-form {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                padding: 15px 0;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .section {
-                padding: 60px 0;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .contact {
-                padding: 30px 20px;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .profile-name {
-                font-size: 1.1rem;
-            }
-        }
-
         /* Animations */
         @keyframes float {
             0%, 100% {
@@ -537,6 +559,77 @@
         .pulse {
             animation: pulse 3s infinite;
         }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .contact-form {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 15px 0;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section {
+                padding: 50px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .contact {
+                padding: 30px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .profile-name {
+                font-size: 1.1rem;
+            }
+            
+            .project-content {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -547,15 +640,20 @@
 
     <!-- Header -->
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="profile">
-                    <div class="profile-pic pulse">
-                        <img src="https://vui.unsplash.com/resize?height=256&quality=60&type=auto&url=https%3A%2F%2Fsearched-images.s3.us-west-2.amazonaws.com%2F93504ce9-10f1-4c52-b2bb-1ec98391c53e%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3DAKIAQ4GRIA4QZE4I5HUY%252F20250816%252Fus-west-2%252Fs3%252Faws4_request%26X-Amz-Date%3D20250816T084033Z%26X-Amz-Expires%3D86400%26X-Amz-SignedHeaders%3Dhost%26X-Amz-Signature%3Dc44788407a5873e5860e1a90ceb5834cd0d23daed04d55c233cdc0cd6ff5a0c9&sign=PylY-cqvEBOXC3IxR9sBeEKZ-Xx-6kOaGS_CjcHdL9I" alt="A S M SAZIB">
-                    </div>
-                    <div class="profile-name">A S M SAZIB</div>
+        <div class="header-content">
+            <div class="profile">
+                <div class="profile-pic pulse">
+                    AS
                 </div>
+                <div class="profile-name">A S M SAZIB</div>
             </div>
+            
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
     </header>
 
@@ -570,17 +668,53 @@
         </div>
     </section>
 
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills">
+                <div class="skill-category">
+                    <h3>Frontend Development</h3>
+                    <div class="skill-list">
+                        <div class="skill-item"><i class="fab fa-html5"></i> HTML5</div>
+                        <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS3</div>
+                        <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
+                        <div class="skill-item"><i class="fab fa-react"></i> React</div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Backend Development</h3>
+                    <div class="skill-list">
+                        <div class="skill-item"><i class="fab fa-node"></i> Node.js</div>
+                        <div class="skill-item"><i class="fas fa-database"></i> MongoDB</div>
+                        <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+                        <div class="skill-item"><i class="fas fa-server"></i> Express</div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>API Integrations</h3>
+                    <div class="skill-list">
+                        <div class="skill-item"><i class="fab fa-telegram"></i> Telegram API</div>
+                        <div class="skill-item"><i class="fab fa-whatsapp"></i> WhatsApp API</div>
+                        <div class="skill-item"><i class="fas fa-cloud"></i> RESTful APIs</div>
+                        <div class="skill-item"><i class="fas fa-exchange-alt"></i> Webhooks</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Section -->
     <section class="section" id="projects">
         <div class="container">
-            <h2 class="section-title">My Skills</h2>
+            <h2 class="section-title">My Projects</h2>
             <div class="projects">
                 <!-- Telegram Bot Project -->
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1637592156979-95f44c286423?q=80&w=913&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-
-" alt="Telegram Bot">
+                        <img src="https://images.unsplash.com/photo-1637592156979-95f44c286423?q=80&w=913&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Telegram Bot">
                     </div>
                     <div class="project-content">
                         <h3>Advanced Telegram Bot</h3>
@@ -667,7 +801,7 @@
         </div>
     </section>
 
-       <!-- Footer -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -687,10 +821,9 @@
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#skills"><i class="fas fa-chevron-right"></i> Skills</a></li>
                         <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projects</a></li>
                         <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
                     </ul>
                 </div>
                 
@@ -700,19 +833,17 @@
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Terms & Conditions</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Cookie Policy</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Disclaimer</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Service Agreement</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Contact Info</h3>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i>Rangpur, Dhaka, Bangladesh</a></li>
-                        <li><a href="mailto:contact@sazib.dev"><i class="fas fa-envelope"></i> asmsajib789@gmail.com</a></li>
-                        <li><a href="tel:+880123456789"><i class="fas fa-phone"></i> +8801713464592</a></li>
-                        <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp: +8801713464592</a></li>
-                        <li><a href="#"><i class="fab fa-telegram"></i> Telegram: @Mohammadsajib789</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Rangpur, Dhaka, Bangladesh</a></li>
+                        <li><a href="mailto:asmsajib789@gmail.com"><i class="fas fa-envelope"></i> asmsajib789@gmail.com</a></li>
+                        <li><a href="tel:+8801713464592"><i class="fas fa-phone"></i> +8801713464592</a></li>
+                        <li><a href="https://wa.me/8801713464592"><i class="fab fa-whatsapp"></i> WhatsApp: +8801713464592</a></li>
+                        <li><a href="https://t.me/Mohammadsajib789"><i class="fab fa-telegram"></i> Telegram: @Mohammadsajib789</a></li>
                     </ul>
                 </div>
             </div>
