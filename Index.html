@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A S M SAZIB | Portfolio</title>
+    <title>BetMaster - Premium Betting Sites</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -12,893 +13,437 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
-        :root {
-            --primary: #6c5ce7;
-            --secondary: #a29bfe;
-            --dark: #2d3436;
-            --light: #f7f7f7;
-            --accent: #fd79a8;
-            --progress-height: 6px;
-            --header-height: 70px;
-        }
-
+        
         body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: var(--light);
+            background: linear-gradient(135deg, #1a1f2d 0%, #0d1117 100%);
+            color: #f5f5f5;
+            min-height: 100vh;
             overflow-x: hidden;
-            padding-top: var(--header-height);
+            padding-bottom: 80px;
         }
-
-        /* Scroll progress bar */
-        .progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: var(--progress-height);
-            background: rgba(108, 92, 231, 0.1);
-            z-index: 1001;
-        }
-
-        .progress-bar {
-            height: var(--progress-height);
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            width: 0%;
-            transition: width 0.3s ease;
-            box-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
-        }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
+        
         /* Header Styles */
         header {
-            background: rgba(26, 26, 46, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: var(--progress-height);
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            border-bottom: 1px solid rgba(108, 92, 231, 0.3);
-            padding: 10px 0;
-            height: var(--header-height);
+            background: linear-gradient(90deg, #1e3a8a 0%, #0f172a 100%);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 10;
         }
-
+        
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
         }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            color: #dfe6e9;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 5px 0;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .profile {
+        
+        .logo {
             display: flex;
             align-items: center;
             gap: 15px;
         }
-
-        .profile-pic {
-            width: 45px;
-            height: 45px;
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
             border-radius: 50%;
-            border: 2px solid var(--primary);
-            overflow: hidden;
-            box-shadow: 0 0 15px rgba(108, 92, 231, 0.5);
-            background: linear-gradient(45deg, #a29bfe, #6c5ce7, #fd79a8);
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+        
+        .logo-icon i {
+            font-size: 24px;
             color: white;
-            font-weight: bold;
-            font-size: 20px;
         }
-
-        .profile-name {
-            font-size: 1.3rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            color: white;
-            text-shadow: 0 0 10px rgba(108, 92, 231, 0.7);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: calc(100vh - var(--header-height));
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 10% 20%, rgba(108, 92, 231, 0.1) 0%, transparent 20%),
-                        radial-gradient(circle at 90% 80%, rgba(253, 121, 168, 0.1) 0%, transparent 20%);
-            z-index: -1;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            text-align: center;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #a29bfe, #6c5ce7, #fd79a8);
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #60a5fa 0%, #93c5fd 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            color: #dfe6e9;
-            line-height: 1.6;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
-            border: none;
-            cursor: pointer;
-            position: relative;
+        
+        /* Marquee Styles */
+        .marquee-container {
+            background: linear-gradient(90deg, #0f172a 0%, #1e293b 100%);
+            padding: 12px 0;
             overflow: hidden;
+            border-top: 1px solid #334155;
+            border-bottom: 1px solid #334155;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
-
-        .cta-button::after {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 20px;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(25deg);
-            transition: all 0.5s;
+        
+        .marquee {
+            display: flex;
+            animation: marquee 25s linear infinite;
+            white-space: nowrap;
         }
-
-        .cta-button:hover::after {
-            left: 120%;
+        
+        .marquee-item {
+            display: flex;
+            align-items: center;
+            margin: 0 30px;
+            font-size: 18px;
+            color: #cbd5e1;
+            font-weight: 600;
         }
-
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(108, 92, 231, 0.6);
+        
+        .marquee-item i {
+            color: #3b82f6;
+            margin-right: 10px;
+            font-size: 20px;
         }
-
-        /* Projects Section */
-        .section {
-            padding: 100px 0;
+        
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
-
+        
+        /* Main Content Styles */
+        main {
+            padding: 40px 0;
+        }
+        
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             position: relative;
         }
-
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary), var(--accent));
-            border-radius: 2px;
-        }
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            position: relative;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border-color: rgba(108, 92, 231, 0.5);
-        }
-
-        .project-img {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .project-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .project-card:hover .project-img img {
-            transform: scale(1.1);
-        }
-
-        .project-content {
-            padding: 25px;
-        }
-
-        .project-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        .project-content p {
-            color: #b2bec3;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .tag {
-            background: rgba(108, 92, 231, 0.2);
-            color: var(--primary);
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-        }
-
-        /* Skills Section */
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .skill-category h3 {
-            color: var(--secondary);
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .skill-item {
-            background: rgba(108, 92, 231, 0.1);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .skill-item i {
-            color: var(--accent);
-        }
-
-        /* Contact Section */
-        .contact {
-            background: rgba(26, 26, 46, 0.7);
-            border-radius: 20px;
-            padding: 50px;
-            margin: 50px 0;
-        }
-
-        .contact-form {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--secondary);
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            color: white;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.3);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        .submit-btn {
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            max-width: 250px;
-            margin: 0 auto;
-        }
-
-        .submit-btn::after {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 20px;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(25deg);
-            transition: all 0.5s;
-        }
-
-        .submit-btn:hover::after {
-            left: 120%;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(108, 92, 231, 0.6);
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(15, 15, 30, 0.95);
-            padding: 70px 0 20px;
-            border-top: 1px solid rgba(108, 92, 231, 0.3);
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-
-        .footer-column h3 {
-            font-size: 1.4rem;
-            margin-bottom: 25px;
-            color: var(--primary);
-            position: relative;
+        
+        .section-title h1 {
+            font-size: 36px;
+            background: linear-gradient(90deg, #60a5fa 0%, #93c5fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             display: inline-block;
         }
-
-        .footer-column h3::after {
+        
+        .section-title h1::after {
             content: "";
             position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);
+            border-radius: 2px;
         }
-
-        .footer-links {
-            list-style: none;
+        
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
         }
-
-        .footer-links li {
-            margin-bottom: 15px;
-        }
-
-        .footer-links a {
-            color: #b2bec3;
-            text-decoration: none;
-            transition: all 0.3s ease;
+        
+        .card {
+            background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 10px;
+            padding: 30px 20px;
+            border: 1px solid #334155;
         }
-
-        .footer-links a:hover {
-            color: var(--primary);
-            transform: translateX(5px);
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            border-color: #3b82f6;
         }
-
-        .footer-links i {
-            color: var(--accent);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
+        
+        .logo-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            border: 3px solid #334155;
+        }
+        
+        .logo-circle img {
+            width: 70%;
+            height: auto;
+            object-fit: contain;
+        }
+        
+        .card-content {
+            text-align: center;
+            width: 100%;
+        }
+        
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #e2e8f0;
+        }
+        
+        .card p {
+            color: #94a3b8;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .visit-btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background: linear-gradient(90deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+        
+        .visit-btn:hover {
+            background: linear-gradient(90deg, #1d4ed8 0%, #3b82f6 100%);
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-balloon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
             border-radius: 50%;
-            background: rgba(108, 92, 231, 0.2);
-            color: var(--primary);
-            font-size: 1.2rem;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
             transition: all 0.3s ease;
         }
-
-        .social-links a:hover {
-            background: var(--primary);
+        
+        .whatsapp-link:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+        }
+        
+        .whatsapp-link i {
+            font-size: 36px;
             color: white;
-            transform: translateY(-5px);
         }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #636e72;
-            font-size: 0.9rem;
-        }
-
-        /* Animations */
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-
+        
         @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(108, 92, 231, 0.7);
-            }
-            70% {
-                transform: scale(1.05);
-                box-shadow: 0 0 0 15px rgba(108, 92, 231, 0);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(108, 92, 231, 0);
-            }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
-
-        .pulse {
-            animation: pulse 3s infinite;
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg, #0f172a 0%, #1e293b 100%);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+            border-top: 1px solid #334155;
         }
-
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-content p {
+            color: #94a3b8;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+        
+        .disclaimer {
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #fca5a5;
+        }
+        
         /* Responsive Design */
-        @media (min-width: 768px) {
-            .contact-form {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            .form-group.full-width {
-                grid-column: 1 / -1;
-            }
-        }
-
-        @media (max-width: 900px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-        }
-
         @media (max-width: 768px) {
             .header-content {
-                padding: 15px 0;
                 flex-direction: column;
-                gap: 15px;
+                gap: 20px;
             }
             
-            .nav-links {
-                gap: 15px;
+            .section-title h1 {
+                font-size: 28px;
             }
             
-            .hero h1 {
-                font-size: 2.5rem;
+            .logo-text {
+                font-size: 24px;
             }
             
-            .section {
-                padding: 70px 0;
+            .marquee-item {
+                font-size: 16px;
+                margin: 0 20px;
+            }
+            
+            .cards-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
             }
         }
-
+        
         @media (max-width: 480px) {
-            .section {
-                padding: 50px 0;
+            .marquee-item {
+                font-size: 14px;
+                margin: 0 15px;
             }
             
-            .section-title {
-                font-size: 2rem;
+            .card {
+                padding: 25px 15px;
             }
             
-            .contact {
-                padding: 30px 20px;
+            .logo-circle {
+                width: 100px;
+                height: 100px;
             }
             
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .profile-name {
-                font-size: 1.1rem;
-            }
-            
-            .project-content {
-                padding: 20px;
+            .visit-btn {
+                padding: 12px 30px;
+                font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Scroll progress bar -->
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
-    </div>
-
-    <!-- Header -->
+    <!-- Header with Logo -->
     <header>
-        <div class="header-content">
-            <div class="profile">
-                <div class="profile-pic pulse">
-                    AS
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-dice"></i>
+                    </div>
+                    <div class="logo-text">BETMASTER</div>
                 </div>
-                <div class="profile-name">A S M SAZIB</div>
             </div>
-            
-            <nav class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </nav>
         </div>
     </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content floating">
-                <h1>Innovative Digital Solutions</h1>
-                <p>Creating cutting-edge Telegram bots, WhatsApp integrations, and responsive landing pages with HTML, CSS & JavaScript</p>
-                <a href="#projects" class="cta-button">View My Work</a>
-            </div>
+    
+    <!-- Marquee Section -->
+    <div class="marquee-container">
+        <div class="marquee">
+            <div class="marquee-item"><i class="fas fa-star"></i> EXCLUSIVE BONUS FOR NEW USERS</div>
+            <div class="marquee-item"><i class="fas fa-gift"></i> 200% WELCOME BONUS UP TO ₹20,000</div>
+            <div class="marquee-item"><i class="fas fa-shield-alt"></i> SECURE & TRUSTED BETTING PLATFORMS</div>
+            <div class="marquee-item"><i class="fas fa-trophy"></i> BEST ODDS GUARANTEED</div>
+            <div class="marquee-item"><i class="fas fa-mobile-alt"></i> MOBILE APP AVAILABLE FOR ALL PLATFORMS</div>
         </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="section" id="skills">
+    </div>
+    
+    <!-- Main Content -->
+    <main>
         <div class="container">
-            <h2 class="section-title">My Skills</h2>
-            <div class="skills">
-                <div class="skill-category">
-                    <h3>Frontend Development</h3>
-                    <div class="skill-list">
-                        <div class="skill-item"><i class="fab fa-html5"></i> HTML5</div>
-                        <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS3</div>
-                        <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
-                        <div class="skill-item"><i class="fab fa-react"></i> React</div>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Backend Development</h3>
-                    <div class="skill-list">
-                        <div class="skill-item"><i class="fab fa-node"></i> Node.js</div>
-                        <div class="skill-item"><i class="fas fa-database"></i> MongoDB</div>
-                        <div class="skill-item"><i class="fab fa-python"></i> Python</div>
-                        <div class="skill-item"><i class="fas fa-server"></i> Express</div>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>API Integrations</h3>
-                    <div class="skill-list">
-                        <div class="skill-item"><i class="fab fa-telegram"></i> Telegram API</div>
-                        <div class="skill-item"><i class="fab fa-whatsapp"></i> WhatsApp API</div>
-                        <div class="skill-item"><i class="fas fa-cloud"></i> RESTful APIs</div>
-                        <div class="skill-item"><i class="fas fa-exchange-alt"></i> Webhooks</div>
-                    </div>
-                </div>
+            <div class="section-title">
+                <h1>PREMIUM BETTING SITES</h1>
             </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="section" id="projects">
-        <div class="container">
-            <h2 class="section-title">My Projects</h2>
-            <div class="projects">
-                <!-- Telegram Bot Project -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1637592156979-95f44c286423?q=80&w=913&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Telegram Bot">
+            
+            <div class="cards-grid">
+                <!-- 1xBet Card -->
+                <div class="card">
+                    <div class="logo-circle">
+                        <img src="https://cdn.worldvectorlogo.com/logos/1xbet.svg" alt="1xBet Logo">
                     </div>
-                    <div class="project-content">
-                        <h3>Advanced Telegram Bot</h3>
-                        <p>A feature-rich Telegram bot with natural language processing, automated responses, and integration with multiple APIs for enhanced user experience.</p>
-                        <div class="project-tags">
-                            <span class="tag">Node.js</span>
-                            <span class="tag">Telegram API</span>
-                            <span class="tag">MongoDB</span>
-                        </div>
+                    <div class="card-content">
+                        <h3>1xBet</h3>
+                        <p>One of the world's leading betting companies with over 1,000,000 customers. Wide range of sports betting options and casino games.</p>
+                        <a href="https://1xbet.com" target="_blank" class="visit-btn">Visit Site</a>
                     </div>
                 </div>
                 
-                <!-- WhatsApp Balloon Project -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1614680376408-81e91ffe3db7?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="WhatsApp Integration">
+                <!-- Linebet Card -->
+                <div class="card">
+                    <div class="logo-circle">
+                        <img src="https://linebet.com/images/logo.png" alt="Linebet Logo" style="filter: brightness(0) invert(1);">
                     </div>
-                    <div class="project-content">
-                        <h3>WhatsApp Balloon Integration</h3>
-                        <p>Custom WhatsApp solution for businesses with automated responses, catalog display, and CRM integration for seamless customer communication.</p>
-                        <div class="project-tags">
-                            <span class="tag">WhatsApp API</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">Twilio</span>
-                        </div>
+                    <div class="card-content">
+                        <h3>Linebet</h3>
+                        <p>Modern betting platform with competitive odds, live streaming, and a user-friendly interface. Great for both beginners and professionals.</p>
+                        <a href="https://linebet.com" target="_blank" class="visit-btn">Visit Site</a>
                     </div>
                 </div>
                 
-                <!-- Landing Page Project -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Landing Page">
+                <!-- Melbet Card -->
+                <div class="card">
+                    <div class="logo-circle">
+                        <img src="https://melbet.com/images/logo.svg" alt="Melbet Logo">
                     </div>
-                    <div class="project-content">
-                        <h3>E-commerce Landing Page</h3>
-                        <p>High-conversion landing page for an e-commerce brand with interactive elements, seamless animations, and mobile-first responsive design.</p>
-                        <div class="project-tags">
-                            <span class="tag">HTML5</span>
-                            <span class="tag">CSS3</span>
-                            <span class="tag">JavaScript</span>
-                        </div>
+                    <div class="card-content">
+                        <h3>Melbet</h3>
+                        <p>International betting company offering sports betting, casino, live games and more. Licensed and regulated for safe betting experience.</p>
+                        <a href="https://melbet.com" target="_blank" class="visit-btn">Visit Site</a>
+                    </div>
+                </div>
+                
+                <!-- Planbet Card -->
+                <div class="card">
+                    <div class="logo-circle">
+                        <img src="https://via.placeholder.com/150/1e293b/ffffff?text=PB" alt="Planbet Logo">
+                    </div>
+                    <div class="card-content">
+                        <h3>Planbet</h3>
+                        <p>Innovative platform with unique betting features, cash-out options, and daily promotions. Focused on providing the best user experience.</p>
+                        <a href="https://planbet.com" target="_blank" class="visit-btn">Visit Site</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact">
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" placeholder="Enter your name">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" placeholder="Enter your email">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" placeholder="Enter your phone number">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" placeholder="What is this regarding?">
-                    </div>
-                    
-                    <div class="form-group full-width">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" placeholder="How can I help you?"></textarea>
-                    </div>
-                    
-                    <div class="form-group full-width">
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
+    </main>
+    
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-balloon">
+        <a href="https://wa.me/1234567890" class="whatsapp-link" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column">
-                    <h3>About Me</h3>
-                    <p>I'm a full-stack developer specializing in creating innovative digital solutions including Telegram bots, WhatsApp integrations, and responsive web applications.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                    </div>
+                <p>© 2023 BetMaster. All rights reserved. This website provides information about betting sites for educational purposes.</p>
+                <div class="disclaimer">
+                    <p>Gambling can be addictive. Please play responsibly. Must be 18+ to participate. Check local laws before gambling.</p>
                 </div>
-                
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="#skills"><i class="fas fa-chevron-right"></i> Skills</a></li>
-                        <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projects</a></li>
-                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Legal</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Terms & Conditions</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Cookie Policy</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Contact Info</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Rangpur, Dhaka, Bangladesh</a></li>
-                        <li><a href="mailto:asmsajib789@gmail.com"><i class="fas fa-envelope"></i> asmsajib789@gmail.com</a></li>
-                        <li><a href="tel:+8801713464592"><i class="fas fa-phone"></i> +8801713464592</a></li>
-                        <li><a href="https://wa.me/8801713464592"><i class="fab fa-whatsapp"></i> WhatsApp: +8801713464592</a></li>
-                        <li><a href="https://t.me/Mohammadsajib789"><i class="fab fa-telegram"></i> Telegram: @Mohammadsajib789</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2025 A S M SAZIB. All Rights Reserved. Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> by Sazib</p>
             </div>
         </div>
     </footer>
-
-    <script>
-        // Scroll progress indicator
-        window.onscroll = function() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById("progressBar").style.width = scrolled + "%";
-        };
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Form submission handling
-        const contactForm = document.querySelector('.contact-form');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            
-            // In a real application, you would send this data to a server
-            alert(`Thank you ${name}! Your message has been sent. I'll contact you at ${email} soon.`);
-            
-            // Reset form
-            contactForm.reset();
-        });
-
-        // Add pulse animation to profile pic
-        const profilePic = document.querySelector('.profile-pic');
-        profilePic.addEventListener('mouseover', () => {
-            profilePic.classList.add('pulse');
-        });
-        
-        profilePic.addEventListener('mouseout', () => {
-            profilePic.classList.remove('pulse');
-        });
-    </script>
 </body>
 </html>
