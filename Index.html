@@ -1,17 +1,19 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1xBet Promotions</title>
+    <title>1xBet - বেটিং ও গেমিং প্ল্যাটফর্ম</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', 'Nirmala UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
@@ -70,6 +72,72 @@
         marquee {
             font-size: 0.9rem;
             color: #ffcc00;
+        }
+        
+        /* স্লাইডার স্টাইল */
+        .slider-container {
+            margin: 0 auto 20px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .slide {
+            position: relative;
+            height: 180px;
+            background: linear-gradient(90deg, #2c3e50 0%, #4ca1af 100%);
+            border-radius: 12px;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+        
+        .slide h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+        
+        .slide p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+        
+        .slide-btn {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #e52d27;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        /* ভাষা টগল বাটন */
+        .language-toggle {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        
+        .language-toggle span {
+            margin: 0 5px;
+            font-size: 0.8rem;
+        }
+        
+        .language-toggle .active {
+            color: #ffcc00;
+            font-weight: bold;
         }
         
         .welcome-banner {
@@ -323,6 +391,20 @@
             font-weight: 600;
             gap: 8px;
         }
+        
+        /* স্লাইডার ডট স্টাইল */
+        .slick-dots {
+            bottom: 10px;
+        }
+        
+        .slick-dots li button:before {
+            color: white;
+            font-size: 10px;
+        }
+        
+        .slick-dots li.slick-active button:before {
+            color: #e52d27;
+        }
     </style>
 </head>
 <body>
@@ -331,93 +413,119 @@
             <div class="logo">
                 <div class="logo-text">1xBET</div>
             </div>
-            <div class="balance">
-                <i class="fas fa-coins"></i> Bonus: 100%
+            <div style="display: flex; align-items: center;">
+                <div class="balance">
+                    <i class="fas fa-coins"></i> বোনাস: ১০০%
+                </div>
+                <div class="language-toggle" id="language-toggle">
+                    <span class="active" id="lang-bn">BN</span>
+                    <span>|</span>
+                    <span id="lang-en">EN</span>
+                </div>
             </div>
         </header>
         
         <div class="marquee-container">
             <marquee behavior="scroll" direction="left">
-                🎉 Welcome to 1xBet Bangladesh! Get 100% bonus on your first deposit! 🎊 Live betting available on cricket, football, and more! ⚽🏏
+                🎉 1xBet বাংলাদেশে স্বাগতম! প্রথম ডিপোজিটে ১০০% বোনাস পান! 🎊 ক্রিকেট, ফুটবল এবং আরও অনেক খেলায় লাইভ বেটিং উপলব্ধ! ⚽🏏
             </marquee>
+        </div>
+        
+        <!-- ইমেজ স্লাইডার -->
+        <div class="slider-container">
+            <div class="slide">
+                <h3>স্বাগতম বোনাস</h3>
+                <p>১৫,০০০ টাকা পর্যন্ত ১০০% বোনাস পান আপনার প্রথম ডিপোজিটে</p>
+                <button class="slide-btn">এখনি যোগ দিন</button>
+            </div>
+            <div class="slide" style="background: linear-gradient(90deg, #e52d27 0%, #b31217 100%);">
+                <h3>লাইভ বেটিং</h3>
+                <p>ক্রিকেট, ফুটবল এবং অন্যান্য খেলায় লাইভ বেটিং উপভোগ করুন</p>
+                <button class="slide-btn">বেট করুন</button>
+            </div>
+            <div class="slide" style="background: linear-gradient(90deg, #4CAF50 0%, #2E7D32 100%);">
+                <h3>ক্যাসিনো গেমস</h3>
+                <p>২০০% পর্যন্ত বোনাস পেতে আমাদের ক্যাসিনো গেমস খেলুন</p>
+                <button class="slide-btn">খেলুন</button>
+            </div>
         </div>
         
         <!-- Home Section -->
         <div id="home" class="section active">
             <div class="welcome-banner">
-                <h2>Welcome Bonus up to 15,000 BDT!</h2>
-                <p>Register today and get 100% bonus on your first deposit</p>
+                <h2>১৫,০০০ টাকা পর্যন্ত স্বাগতম বোনাস!</h2>
+                <p>আজই রেজিস্ট্রেশন করুন এবং আপনার প্রথম ডিপোজিটে ১০০% বোনাস পান</p>
             </div>
 
-            <h2 class="section-title">Special Offers</h2>
+            <h2 class="section-title">বিশেষ অফারগুলি ⚡</h2>
             <div class="offers-grid">
                 <div class="offer-card">
                     <div class="offer-icon">
                         <i class="fas fa-gift"></i>
                     </div>
-                    <h3>Welcome Bonus</h3>
-                    <p>100% on first deposit up to 15,000 BDT</p>
+                    <h3>স্বাগতম বোনাস</h3>
+                    <p>প্রথম ডিপোজিটে ১০০% বোনাস পর্যন্ত ১৫,০০০ টাকা</p>
                 </div>
                 <div class="offer-card">
                     <div class="offer-icon">
                         <i class="fas fa-football-ball"></i>
                     </div>
-                    <h3>Sports Betting</h3>
-                    <p>Get 50% bonus on sports bets</p>
+                    <h3>স্পোর্টস বেটিং</h3>
+                    <p>স্পোর্টস বেটে ৫০% বোনাস পান</p>
                 </div>
                 <div class="offer-card">
                     <div class="offer-icon">
                         <i class="fas fa-dice"></i>
                     </div>
-                    <h3>Casino Friday</h3>
-                    <p>200% bonus on casino games</p>
+                    <h3>ক্যাসিনো ফ্রাইডে</h3>
+                    <p>ক্যাসিনো গেমসে ২০০% বোনাস</p>
                 </div>
                 <div class="offer-card">
                     <div class="offer-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>App Exclusive</h3>
-                    <p>Download app for extra bonuses</p>
+                    <h3>অ্যাপ এক্সক্লুসিভ</h3>
+                    <p>অতিরিক্ত বোনাস পেতে অ্যাপ ডাউনলোড করুন</p>
                 </div>
             </div>
             
             <div class="promo-section">
                 <div class="promo-header">
-                    <h2>Promo Codes</h2>
-                    <span>Copy & Use</span>
+                    <h2>প্রোমো কোডগুলি 🎫</h2>
+                    <span>কপি এবং ব্যবহার করুন</span>
                 </div>
                 <div class="promo-list">
                     <div class="promo-item">
-                        <h3>Sports Welcome Bonus</h3>
-                        <p>Use this code for 100% sports bonus</p>
+                        <h3>স্পোর্টস স্বাগতম বোনাস</h3>
+                        <p>১০০% স্পোর্টস বোনাস পেতে এই কোড ব্যবহার করুন</p>
                         <div class="promo-code">
                             <span class="code">SPORTS100</span>
-                            <button class="copy-btn" data-code="SPORTS100">Copy</button>
+                            <button class="copy-btn" data-code="SPORTS100">কপি</button>
                         </div>
                     </div>
                     <div class="promo-item">
-                        <h3>Casino Bonus</h3>
-                        <p>200% bonus on casino deposits</p>
+                        <h3>ক্যাসিনো বোনাস</h3>
+                        <p>ক্যাসিনো ডিপোজিটে ২০০% বোনাস</p>
                         <div class="promo-code">
                             <span class="code">CASINO200</span>
-                            <button class="copy-btn" data-code="CASINO200">Copy</button>
+                            <button class="copy-btn" data-code="CASINO200">কপি</button>
                         </div>
                     </div>
                     <div class="promo-item">
-                        <h3>Friday Bonus</h3>
-                        <p>Extra 50% bonus every Friday</p>
+                        <h3>শুক্রবার বোনাস</h3>
+                        <p>প্রতি শুক্রবার অতিরিক্ত ৫০% বোনাস</p>
                         <div class="promo-code">
                             <span class="code">FRIDAY50</span>
-                            <button class="copy-btn" data-code="FRIDAY50">Copy</button>
+                            <button class="copy-btn" data-code="FRIDAY50">কপি</button>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="card-section">
-                <h2>Register Now</h2>
-                <p>Create an account and start betting with amazing bonuses</p>
-                <button class="register-btn" onclick="window.open('https://1xbet.com', '_blank')">Register Now</button>
+                <h2>এখনই রেজিস্ট্রেশন করুন</h2>
+                <p>একটি অ্যাকাউন্ট তৈরি করুন এবং আশ্চর্যজনক বোনাস দিয়ে বেটিং শুরু করুন</p>
+                <button class="register-btn" onclick="window.open('https://1xbet.com', '_blank')">রেজিস্টার এখন</button>
                 
                 <div class="payment-methods">
                     <div class="payment-method">
@@ -435,80 +543,80 @@
         
         <!-- Promo Codes Section -->
         <div id="promo" class="section">
-            <h2 class="section-title">All Promo Codes</h2>
+            <h2 class="section-title">সমস্ত প্রোমো কোড</h2>
             
             <div class="promo-item" style="width: 100%; margin-bottom: 15px;">
-                <h3>Welcome Bonus</h3>
-                <p>Use this code for 100% welcome bonus</p>
+                <h3>স্বাগতম বোনাস</h3>
+                <p>১০০% স্বাগতম বোনাস পেতে এই কোড ব্যবহার করুন</p>
                 <div class="promo-code">
                     <span class="code">WELCOME100</span>
-                    <button class="copy-btn" data-code="WELCOME100">Copy</button>
+                    <button class="copy-btn" data-code="WELCOME100">কপি</button>
                 </div>
             </div>
             
             <div class="promo-item" style="width: 100%; margin-bottom: 15px;">
-                <h3>Sports Friday</h3>
-                <p>50% bonus on sports every Friday</p>
+                <h3>স্পোর্টস ফ্রাইডে</h3>
+                <p>প্রতি শুক্রবার স্পোর্টসে ৫০% বোনাস</p>
                 <div class="promo-code">
                     <span class="code">FRISPORTS50</span>
-                    <button class="copy-btn" data-code="FRISPORTS50">Copy</button>
+                    <button class="copy-btn" data-code="FRISPORTS50">কপি</button>
                 </div>
             </div>
             
             <div class="promo-item" style="width: 100%; margin-bottom: 15px;">
-                <h3>Mobile Bonus</h3>
-                <p>Extra 30% for mobile users</p>
+                <h3>মোবাইল বোনাস</h3>
+                <p>মোবাইল ব্যবহারকারীদের জন্য অতিরিক্ত ৩০%</p>
                 <div class="promo-code">
                     <span class="code">MOBILE30</span>
-                    <button class="copy-btn" data-code="MOBILE30">Copy</button>
+                    <button class="copy-btn" data-code="MOBILE30">কপি</button>
                 </div>
             </div>
             
             <div class="promo-item" style="width: 100%; margin-bottom: 15px;">
-                <h3>Cashback Offer</h3>
-                <p>Get 10% cashback on losses</p>
+                <h3>ক্যাশব্যাক অফার</h3>
+                <p>লসে ১০% ক্যাশব্যack পান</p>
                 <div class="promo-code">
                     <span class="code">CASHBACK10</span>
-                    <button class="copy-btn" data-code="CASHBACK10">Copy</button>
+                    <button class="copy-btn" data-code="CASHBACK10">কপি</button>
                 </div>
             </div>
         </div>
         
         <!-- Contact Section -->
         <div id="contact" class="section">
-            <h2 class="section-title">Contact Us</h2>
+            <h2 class="section-title">যোগাযোগ করুন</h2>
             
             <div class="card-section">
                 <div class="offer-icon">
                     <i class="fas fa-headset"></i>
                 </div>
-                <h2>24/7 Customer Support</h2>
-                <p>We're always here to help you with any questions or issues</p>
+                <h2>২৪/৭ কাস্টমার সাপোর্ট</h2>
+                <p>আমরা আপনার যেকোনো প্রশ্ন বা সমস্যায় সাহায্যের জন্য সর্বদা এখানে আছি</p>
                 
                 <div style="margin-top: 30px; text-align: left;">
                     <h3 style="margin-bottom: 15px; display: flex; align-items: center;">
-                        <i class="fas fa-envelope" style="margin-right: 10px;"></i> Email Support
+                        <i class="fas fa-envelope" style="margin-right: 10px;"></i> ইমেল সাপোর্ট
                     </h3>
                     <p style="margin-bottom: 20px;">support@1xbet.com</p>
                     
                     <h3 style="margin-bottom: 15px; display: flex; align-items: center;">
-                        <i class="fas fa-phone" style="margin-right: 10px;"></i> Phone Support
+                        <i class="fas fa-phone" style="margin-right: 10px;"></i> ফোন সাপোর্ট
                     </h3>
-                    <p style="margin-bottom: 20px;">+880 XXXX-XXXXXX</p>
+                    <p style="margin-bottom: 20px;">+৮৮০ XXXX-XXXXXX</p>
                     
                     <h3 style="margin-bottom: 15px; display: flex; align-items: center;">
                         <i class="fab fa-whatsapp" style="margin-right: 10px; color: #25D366;"></i> WhatsApp
                     </h3>
-                    <p style="margin-bottom: 20px;">01826444505 (Live Chat)</p>
+                    <p style="margin-bottom: 20px;">০১৮২৬৪৪৪৫০৫ (লাইভ চ্যাট)</p>
                     
                     <h3 style="margin-bottom: 15px; display: flex; align-items: center;">
-                        <i class="fab fa-facebook-messenger" style="margin-right: 10px;"></i> Live Chat
+                        <i class="fab fa-facebook-messenger" style="margin-right: 10px;"></i> লাইভ চ্যাট
                     </h3>
-                    <p>Available 24/7 on our website and app</p>
+                    <p>আমাদের ওয়েবসাইট এবং অ্যাপে ২৪/৭ উপলব্ধ</p>
                 </div>
                 
                 <a href="https://wa.me/8801826444505" class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    <i class="fab fa-whatsapp"></i> WhatsApp এ চ্যাট করুন
                 </a>
             </div>
         </div>
@@ -517,21 +625,36 @@
     <div class="bottom-nav">
         <a href="#" class="nav-item active" data-target="home">
             <i class="fas fa-home"></i>
-            <span>Home</span>
+            <span>হোম</span>
         </a>
         <a href="#" class="nav-item" data-target="promo">
             <i class="fas fa-ticket-alt"></i>
-            <span>Promo Codes</span>
+            <span>প্রোমো কোড</span>
         </a>
         <a href="#" class="nav-item" data-target="contact">
             <i class="fas fa-phone-alt"></i>
-            <span>Contact</span>
+            <span>যোগাযোগ</span>
         </a>
     </div>
     
-    <div class="toast" id="toast">Promo code copied!</div>
+    <div class="toast" id="toast">প্রোমো কোড কপি হয়েছে!</div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
+        // স্লাইডার ইনিশিয়ালাইজেশন
+        $(document).ready(function(){
+            $('.slider-container').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 3000
+            });
+        });
+        
         // Navigation functionality
         const navItems = document.querySelectorAll('.nav-item');
         const sections = document.querySelectorAll('.section');
@@ -570,7 +693,7 @@
                 // Copy to clipboard
                 navigator.clipboard.writeText(code).then(() => {
                     // Show toast notification
-                    toast.textContent = `Copied: ${code}`;
+                    toast.textContent = `কপি হয়েছে: ${code}`;
                     toast.classList.add('show');
                     
                     setTimeout(() => {
@@ -586,7 +709,7 @@
                     document.body.removeChild(textArea);
                     
                     // Show toast notification
-                    toast.textContent = `Copied: ${code}`;
+                    toast.textContent = `কপি হয়েছে: ${code}`;
                     toast.classList.add('show');
                     
                     setTimeout(() => {
@@ -594,6 +717,49 @@
                     }, 2000);
                 });
             });
+        });
+        
+        // Language toggle functionality
+        const languageToggle = document.getElementById('language-toggle');
+        const langBn = document.getElementById('lang-bn');
+        const langEn = document.getElementById('lang-en');
+        
+        languageToggle.addEventListener('click', function() {
+            if (langBn.classList.contains('active')) {
+                langBn.classList.remove('active');
+                langEn.classList.add('active');
+                // Change to English
+                document.querySelector('.balance').innerHTML = '<i class="fas fa-coins"></i> Bonus: 100%';
+                document.querySelector('marquee').textContent = '🎉 Welcome to 1xBet Bangladesh! Get 100% bonus on your first deposit! 🎊 Live betting available on cricket, football, and more! ⚽🏏';
+                document.querySelector('.welcome-banner h2').textContent = 'Welcome Bonus up to 15,000 BDT!';
+                document.querySelector('.welcome-banner p').textContent = 'Register today and get 100% bonus on your first deposit';
+                document.querySelector('.section-title').textContent = 'Special Offers ⚡';
+                document.querySelector('.promo-header h2').textContent = 'Promo Codes 🎫';
+                document.querySelector('.promo-header span').textContent = 'Copy & Use';
+                document.querySelector('.card-section h2').textContent = 'Register Now';
+                document.querySelector('.card-section p').textContent = 'Create an account and start betting with amazing bonuses';
+                document.querySelector('.register-btn').textContent = 'Register Now';
+                document.querySelector('.bottom-nav .nav-item[data-target="home"] span').textContent = 'Home';
+                document.querySelector('.bottom-nav .nav-item[data-target="promo"] span').textContent = 'Promo Codes';
+                document.querySelector('.bottom-nav .nav-item[data-target="contact"] span').textContent = 'Contact';
+            } else {
+                langEn.classList.remove('active');
+                langBn.classList.add('active');
+                // Change to Bengali
+                document.querySelector('.balance').innerHTML = '<i class="fas fa-coins"></i> বোনাস: ১০০%';
+                document.querySelector('marquee').textContent = '🎉 1xBet বাংলাদেশে স্বাগতম! প্রথম ডিপোজিটে ১০০% বোনাস পান! 🎊 ক্রিকেট, ফুটবল এবং আরও অনেক খেলায় লাইভ বেটিং উপলব্ধ! ⚽🏏';
+                document.querySelector('.welcome-banner h2').textContent = '১৫,০০০ টাকা পর্যন্ত স্বাগতম বোনাস!';
+                document.querySelector('.welcome-banner p').textContent = 'আজই রেজিস্ট্রেশন করুন এবং আপনার প্রথম ডিপোজিটে ১০০% বোনাস পান';
+                document.querySelector('.section-title').textContent = 'বিশেষ অফারগুলি ⚡';
+                document.querySelector('.promo-header h2').textContent = 'প্রোমো কোডগুলি 🎫';
+                document.querySelector('.promo-header span').textContent = 'কপি এবং ব্যবহার করুন';
+                document.querySelector('.card-section h2').textContent = 'এখনই রেজিস্ট্রেশন করুন';
+                document.querySelector('.card-section p').textContent = 'একটি অ্যাকাউন্ট তৈরি করুন এবং আশ্চর্যজনক বোনাস দিয়ে বেটিং শুরু করুন';
+                document.querySelector('.register-btn').textContent = 'রেজিস্টার এখন';
+                document.querySelector('.bottom-nav .nav-item[data-target="home"] span').textContent = 'হোম';
+                document.querySelector('.bottom-nav .nav-item[data-target="promo"] span').textContent = 'প্রোমো কোড';
+                document.querySelector('.bottom-nav .nav-item[data-target="contact"] span').textContent = 'যোগাযোগ';
+            }
         });
     </script>
 </body>
