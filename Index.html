@@ -85,11 +85,30 @@
         .slide {
             position: relative;
             height: 180px;
-            background: linear-gradient(90deg, #2c3e50 0%, #4ca1af 100%);
             border-radius: 12px;
             padding: 20px;
             color: white;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .slide-1 {
+            background: linear-gradient(90deg, #2c3e50 0%, #4ca1af 100%);
+        }
+        
+        .slide-2 {
+            background: linear-gradient(90deg, #e52d27 0%, #b31217 100%);
+        }
+        
+        .slide-3 {
+            background: linear-gradient(90deg, #4CAF50 0%, #2E7D32 100%);
+        }
+        
+        .slide-4 {
+            background: linear-gradient(90deg, #9C27B0 0%, #673AB7 100%);
         }
         
         .slide h3 {
@@ -102,21 +121,24 @@
             font-size: 0.9rem;
             opacity: 0.9;
             max-width: 80%;
-            margin: 0 auto;
+            margin: 0 auto 15px auto;
         }
         
         .slide-btn {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #e52d27;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
             color: white;
             border: none;
             padding: 8px 15px;
             border-radius: 20px;
             font-weight: 600;
             cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .slide-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
         
         /* ভাষা টগল বাটন */
@@ -433,20 +455,25 @@
         
         <!-- ইমেজ স্লাইডার -->
         <div class="slider-container">
-            <div class="slide">
+            <div class="slide slide-1">
                 <h3>স্বাগতম বোনাস</h3>
                 <p>১৫,০০০ টাকা পর্যন্ত ১০০% বোনাস পান আপনার প্রথম ডিপোজিটে</p>
-                <button class="slide-btn">এখনি যোগ দিন</button>
+                <button class="slide-btn" onclick="window.open('https://1xbet.com', '_blank')">রেজিস্ট্রেশন করুন</button>
             </div>
-            <div class="slide" style="background: linear-gradient(90deg, #e52d27 0%, #b31217 100%);">
-                <h3>লাইভ বেটিং</h3>
-                <p>ক্রিকেট, ফুটবল এবং অন্যান্য খেলায় লাইভ বেটিং উপভোগ করুন</p>
-                <button class="slide-btn">বেট করুন</button>
+            <div class="slide slide-2">
+                <h3>ক্র্যাশ গেম</h3>
+                <p>এক্সাইটিং ক্র্যাশ গেম খেলুন এবং বড় পুরস্কার জিতুন</p>
+                <button class="slide-btn" onclick="window.open('https://1xbet.com', '_blank')">ক্র্যাশ খেলুন</button>
             </div>
-            <div class="slide" style="background: linear-gradient(90deg, #4CAF50 0%, #2E7D32 100%);">
-                <h3>ক্যাসিনো গেমস</h3>
-                <p>২০০% পর্যন্ত বোনাস পেতে আমাদের ক্যাসিনো গেমস খেলুন</p>
-                <button class="slide-btn">খেলুন</button>
+            <div class="slide slide-3">
+                <h3>স্লট গেমস</h3>
+                <p>১০০০+ স্লট গেমস উপভোগ করুন এবং জ্যাকপট জিতুন</p>
+                <button class="slide-btn" onclick="window.open('https://1xbet.com', '_blank')">স্লট খেলুন</button>
+            </div>
+            <div class="slide slide-4">
+                <h3>লাইভ ক্যাসিনো</h3>
+                <p>লাইভ ডিলারদের সাথে রিয়েল ক্যাসিনো অভিজ্ঞতা উপভোগ করুন</p>
+                <button class="slide-btn" onclick="window.open('https://1xbet.com', '_blank')">ক্যাসিনো খেলুন</button>
             </div>
         </div>
         
@@ -574,7 +601,7 @@
             
             <div class="promo-item" style="width: 100%; margin-bottom: 15px;">
                 <h3>ক্যাশব্যাক অফার</h3>
-                <p>লসে ১০% ক্যাশব্যack পান</p>
+                <p>লসে ১০% ক্যাশব্যাক পান</p>
                 <div class="promo-code">
                     <span class="code">CASHBACK10</span>
                     <button class="copy-btn" data-code="CASHBACK10">কপি</button>
@@ -647,11 +674,14 @@
             $('.slider-container').slick({
                 dots: true,
                 infinite: true,
-                speed: 300,
+                speed: 500,
                 slidesToShow: 1,
-                adaptiveHeight: true,
+                slidesToScroll: 1,
                 autoplay: true,
-                autoplaySpeed: 3000
+                autoplaySpeed: 3000,
+                adaptiveHeight: true,
+                pauseOnHover: true,
+                cssEase: 'ease-in-out'
             });
         });
         
@@ -742,6 +772,23 @@
                 document.querySelector('.bottom-nav .nav-item[data-target="home"] span').textContent = 'Home';
                 document.querySelector('.bottom-nav .nav-item[data-target="promo"] span').textContent = 'Promo Codes';
                 document.querySelector('.bottom-nav .nav-item[data-target="contact"] span').textContent = 'Contact';
+                
+                // Update slider text
+                document.querySelectorAll('.slide h3')[0].textContent = 'Welcome Bonus';
+                document.querySelectorAll('.slide p')[0].textContent = 'Get 100% bonus up to 15,000 BDT on your first deposit';
+                document.querySelectorAll('.slide-btn')[0].textContent = 'Register Now';
+                
+                document.querySelectorAll('.slide h3')[1].textContent = 'Crash Game';
+                document.querySelectorAll('.slide p')[1].textContent = 'Play exciting crash game and win big prizes';
+                document.querySelectorAll('.slide-btn')[1].textContent = 'Play Crash';
+                
+                document.querySelectorAll('.slide h3')[2].textContent = 'Slot Games';
+                document.querySelectorAll('.slide p')[2].textContent = 'Enjoy 1000+ slot games and win jackpots';
+                document.querySelectorAll('.slide-btn')[2].textContent = 'Play Slots';
+                
+                document.querySelectorAll('.slide h3')[3].textContent = 'Live Casino';
+                document.querySelectorAll('.slide p')[3].textContent = 'Experience real casino with live dealers';
+                document.querySelectorAll('.slide-btn')[3].textContent = 'Play Casino';
             } else {
                 langEn.classList.remove('active');
                 langBn.classList.add('active');
@@ -759,6 +806,23 @@
                 document.querySelector('.bottom-nav .nav-item[data-target="home"] span').textContent = 'হোম';
                 document.querySelector('.bottom-nav .nav-item[data-target="promo"] span').textContent = 'প্রোমো কোড';
                 document.querySelector('.bottom-nav .nav-item[data-target="contact"] span').textContent = 'যোগাযোগ';
+                
+                // Update slider text
+                document.querySelectorAll('.slide h3')[0].textContent = 'স্বাগতম বোনাস';
+                document.querySelectorAll('.slide p')[0].textContent = '১৫,০০০ টাকা পর্যন্ত ১০০% বোনাস পান আপনার প্রথম ডিপোজিটে';
+                document.querySelectorAll('.slide-btn')[0].textContent = 'রেজিস্ট্রেশন করুন';
+                
+                document.querySelectorAll('.slide h3')[1].textContent = 'ক্র্যাশ গেম';
+                document.querySelectorAll('.slide p')[1].textContent = 'এক্সাইটিং ক্র্যাশ গেম খেলুন এবং বড় পুরস্কার জিতুন';
+                document.querySelectorAll('.slide-btn')[1].textContent = 'ক্র্যাশ খেলুন';
+                
+                document.querySelectorAll('.slide h3')[2].textContent = 'স্লট গেমস';
+                document.querySelectorAll('.slide p')[2].textContent = '১০০০+ স্লট गেমস উপভোগ করুন এবং জ্যাকপট জিতুন';
+                document.querySelectorAll('.slide-btn')[2].textContent = 'স্লট খেলুন';
+                
+                document.querySelectorAll('.slide h3')[3].textContent = 'লাইভ ক্যাসিনো';
+                document.querySelectorAll('.slide p')[3].textContent = 'লাইভ ডিলারদের সাথে রিয়েল ক্যাসিনো অভিজ্ঞতা উপভোগ করুন';
+                document.querySelectorAll('.slide-btn')[3].textContent = 'ক্যাসিনো খেলুন';
             }
         });
     </script>
