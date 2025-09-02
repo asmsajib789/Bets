@@ -34,7 +34,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 10px;
-            background: white;
+            background: #001f3f; /* Navy blue */
             border-radius: 12px;
             margin-bottom: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -48,16 +48,23 @@
         .logo-text {
             font-size: 1.8rem;
             font-weight: 800;
-            color: #001f3f; /* Navy blue */
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            color: white; /* White text */
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         
-        .balance {
-            background: rgba(0, 31, 63, 0.1);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: 600;
-            color: #001f3f;
+        .gift-icon {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            color: #ffcc00;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .gift-icon:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.3);
         }
         
         .marquee-container {
@@ -486,14 +493,84 @@
             margin-bottom: 15px;
             color: #ffcc00;
         }
+        
+        /* অ্যাপ ডাউনলোড সেকশন */
+        .app-section {
+            background: #2a3041;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .app-section h2 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .app-section p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .download-btn {
+            display: flex;
+            align-items: center;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover {
+            background: #444;
+            transform: translateY(-2px);
+        }
+        
+        .download-btn i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .android-btn {
+            background: #3DDC84;
+            color: #000;
+        }
+        
+        .ios-btn {
+            background: #007AFF;
+        }
     </style>
 </head>
 <body>
-    <!-- পপআপ -->
-    <div class="popup-overlay active" id="popup">
+    <!-- গিফট আইকন পপআপ -->
+    <div class="popup-overlay" id="gift-popup">
         <div class="popup-content">
-            <div class="popup-close" id="close-popup">✕</div>
+            <div class="popup-close" id="close-gift-popup">✕</div>
             <h2 class="popup-title">বিশেষ অফার!</h2>
+            <p class="popup-text">আপনার প্রথম ডিপোজিটে ১০০% বোনাস পান! ১৫,০০০ টাকা পর্যন্ত বোনাস পাওয়ার সুযোগ। এখনই রেজিস্ট্রেশন করুন এবং এই বিশেষ অফারটি উপভোগ করুন।</p>
+            <button class="popup-btn" onclick="window.open('https://1xbet.com', '_blank')">রেজিস্ট্রেশন করুন</button>
+        </div>
+    </div>
+    
+    <!-- ওয়েলকাম পপআপ -->
+    <div class="popup-overlay active" id="welcome-popup">
+        <div class="popup-content">
+            <div class="popup-close" id="close-welcome-popup">✕</div>
+            <h2 class="popup-title">1xBet-এ স্বাগতম!</h2>
             <p class="popup-text">আপনার প্রথম ডিপোজিটে ১০০% বোনাস পান! ১৫,০০০ টাকা পর্যন্ত বোনাস পাওয়ার সুযোগ। এখনই রেজিস্ট্রেশন করুন এবং এই বিশেষ অফারটি উপভোগ করুন।</p>
             <button class="popup-btn" onclick="window.open('https://1xbet.com', '_blank')">রেজিস্ট্রেশন করুন</button>
         </div>
@@ -504,8 +581,8 @@
             <div class="logo">
                 <div class="logo-text">1xBET</div>
             </div>
-            <div class="balance">
-                <i class="fas fa-coins"></i> বোনাস: ১০০%
+            <div class="gift-icon" id="gift-icon">
+                <i class="fas fa-gift"></i>
             </div>
         </header>
         
@@ -523,7 +600,7 @@
                 </div>
                 <h3>স্লট গেমস</h3>
                 <p>১০০০+ স্লট গেমস উপভোগ করুন এবং জ্যাকপট জিতুন</p>
-                <button class="slide-btn" onclick="window.open('https://1xbet.com', '_blank')">স্লট খেলুন</button>
+                <button class="slide-btn" onclick="window.open('https://1xbet.com', '_blank')">রেজিস্ট্রেশন করুন</button>
             </div>
             <div class="slide slide-2">
                 <div class="slide-icon">
@@ -531,7 +608,7 @@
                 </div>
                 <h3>লাইভ ক্যাসিনো</h3>
                 <p>লাইভ ডিলারদের সাথে রিয়েল ক্যাসিনো অভিজ্ঞতা উপভোগ করুন</p>
-                <button class="slide-btn" onclick="window.open('https://1xbet.com', '_blank')">ক্যাসিনো খেলুন</button>
+                <button class="slide-btn" onclick="window.open('https://1xbet.com', '_blank')">রেজিস্ট্রেশন করুন</button>
             </div>
             <div class="slide slide-3">
                 <div class="slide-icon">
@@ -539,7 +616,7 @@
                 </div>
                 <h3>ক্র্যাশ গেম</h3>
                 <p>এক্সাইটিং ক্র্যাশ গেম খেলুন এবং বড় পুরস্কার জিতুন</p>
-                <button class="slide-btn" onclick="window.open('https://1xbet.com', '_blank')">ক্র্যাশ খেলুন</button>
+                <button class="slide-btn" onclick="window.open('https://1xbet.com', '_blank')">রেজিস্ট্রেশন করুন</button>
             </div>
             <div class="slide slide-4">
                 <div class="slide-icon">
@@ -547,7 +624,7 @@
                 </div>
                 <h3>লাইভ গেমস</h3>
                 <p>বিভিন্ন লাইভ গেমস খেলে আনন্দ উপভোগ করুন</p>
-                <button class="slide-btn" onclick="window.open('https://1xbet.com', '_blank')">গেমস খেলুন</button>
+                <button class="slide-btn" onclick="window.open('https://1xbet.com', '_blank')">রেজিস্ট্রেশন করুন</button>
             </div>
         </div>
         
@@ -644,6 +721,40 @@
             </div>
         </div>
         
+        <!-- App Section -->
+        <div id="app" class="section">
+            <h2 class="section-title">অ্যাপ ডাউনলোড করুন</h2>
+            
+            <div class="app-section">
+                <div class="offer-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h2>মোবাইল অ্যাপ ডাউনলোড করুন</h2>
+                <p>আমাদের মোবাইল অ্যাপ ডাউনলোড করুন এবং যেকোনো সময়, যেকোনো স্থান থেকে বেটিং উপভোগ করুন</p>
+                
+                <div class="download-buttons">
+                    <a href="#" class="download-btn android-btn">
+                        <i class="fab fa-android"></i>
+                        Android App
+                    </a>
+                    <a href="#" class="download-btn ios-btn">
+                        <i class="fab fa-apple"></i>
+                        iOS App
+                    </a>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <h3>অ্যাপের বিশেষ সুবিধাসমূহ:</h3>
+                    <ul style="text-align: left; margin-top: 15px; padding-left: 20px;">
+                        <li style="margin-bottom: 10px;">দ্রুত এবং সহজ বেটিং</li>
+                        <li style="margin-bottom: 10px;">লাইভ স্ট্রিমিং</li>
+                        <li style="margin-bottom: 10px;">বিশেষ মোবাইল বোনাস</li>
+                        <li style="margin-bottom: 10px;">পুশ নোটিফিকেশন</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
         <!-- Promo Codes Section -->
         <div id="promo" class="section">
             <h2 class="section-title">সমস্ত প্রোমো কোড</h2>
@@ -729,6 +840,10 @@
         <a href="#" class="nav-item active" data-target="home">
             <i class="fas fa-home"></i>
             <span>হোম</span>
+        </a>
+        <a href="#" class="nav-item" data-target="app">
+            <i class="fas fa-mobile-alt"></i>
+            <span>অ্যাপ</span>
         </a>
         <a href="#" class="nav-item" data-target="promo">
             <i class="fas fa-ticket-alt"></i>
@@ -826,18 +941,49 @@
         });
         
         // Popup functionality
-        const popup = document.getElementById('popup');
-        const closePopup = document.getElementById('close-popup');
+        const giftPopup = document.getElementById('gift-popup');
+        const welcomePopup = document.getElementById('welcome-popup');
+        const closeGiftPopup = document.getElementById('close-gift-popup');
+        const closeWelcomePopup = document.getElementById('close-welcome-popup');
+        const giftIcon = document.getElementById('gift-icon');
         
-        closePopup.addEventListener('click', function() {
-            popup.classList.remove('active');
+        giftIcon.addEventListener('click', function() {
+            giftPopup.classList.add('active');
+        });
+        
+        closeGiftPopup.addEventListener('click', function() {
+            giftPopup.classList.remove('active');
+        });
+        
+        closeWelcomePopup.addEventListener('click', function() {
+            welcomePopup.classList.remove('active');
         });
         
         // Close popup when clicking outside
-        popup.addEventListener('click', function(e) {
-            if (e.target === popup) {
-                popup.classList.remove('active');
+        giftPopup.addEventListener('click', function(e) {
+            if (e.target === giftPopup) {
+                giftPopup.classList.remove('active');
             }
+        });
+        
+        welcomePopup.addEventListener('click', function(e) {
+            if (e.target === welcomePopup) {
+                welcomePopup.classList.remove('active');
+            }
+        });
+        
+        // App download buttons
+        const androidBtn = document.querySelector('.android-btn');
+        const iosBtn = document.querySelector('.ios-btn');
+        
+        androidBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open('https://1xbet.com/download/android', '_blank');
+        });
+        
+        iosBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open('https://1xbet.com/download/ios', '_blank');
         });
     </script>
 </body>
