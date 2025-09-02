@@ -93,22 +93,24 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            background-size: cover;
+            background-position: center;
         }
         
         .slide-1 {
-            background: linear-gradient(90deg, #2c3e50 0%, #4ca1af 100%);
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/600x300/2c3e50/ffffff?text=Slots');
         }
         
         .slide-2 {
-            background: linear-gradient(90deg, #e52d27 0%, #b31217 100%);
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/600x300/e52d27/ffffff?text=Casino');
         }
         
         .slide-3 {
-            background: linear-gradient(90deg, #4CAF50 0%, #2E7D32 100%);
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/600x300/4CAF50/ffffff?text=Crash');
         }
         
         .slide-4 {
-            background: linear-gradient(90deg, #9C27B0 0%, #673AB7 100%);
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/600x300/9C27B0/ffffff?text=Live+Games');
         }
         
         .slide h3 {
@@ -139,27 +141,6 @@
         .slide-btn:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
-        }
-        
-        /* ভাষা টগল বাটন */
-        .language-toggle {
-            display: flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 5px 10px;
-            border-radius: 20px;
-            margin-left: 10px;
-            cursor: pointer;
-        }
-        
-        .language-toggle span {
-            margin: 0 5px;
-            font-size: 0.8rem;
-        }
-        
-        .language-toggle .active {
-            color: #ffcc00;
-            font-weight: bold;
         }
         
         .welcome-banner {
@@ -427,23 +408,105 @@
         .slick-dots li.slick-active button:before {
             color: #e52d27;
         }
+        
+        /* পপআপ স্টাইল */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .popup-content {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a1f2d 100%);
+            width: 90%;
+            max-width: 400px;
+            border-radius: 15px;
+            padding: 25px;
+            position: relative;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #e52d27;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .popup-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ffcc00;
+        }
+        
+        .popup-text {
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .popup-btn {
+            background: linear-gradient(90deg, #e52d27 0%, #b31217 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(229, 45, 39, 0.4);
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .slide-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ffcc00;
+        }
     </style>
 </head>
 <body>
+    <!-- পপআপ -->
+    <div class="popup-overlay active" id="popup">
+        <div class="popup-content">
+            <div class="popup-close" id="close-popup">✕</div>
+            <h2 class="popup-title">বিশেষ অফার!</h2>
+            <p class="popup-text">আপনার প্রথম ডিপোজিটে ১০০% বোনাস পান! ১৫,০০০ টাকা পর্যন্ত বোনাস পাওয়ার সুযোগ। এখনই রেজিস্ট্রেশন করুন এবং এই বিশেষ অফারটি উপভোগ করুন।</p>
+            <button class="popup-btn" onclick="window.open('https://1xbet.com', '_blank')">রেজিস্ট্রেশন করুন</button>
+        </div>
+    </div>
+    
     <div class="container">
         <header>
             <div class="logo">
                 <div class="logo-text">1xBET</div>
             </div>
-            <div style="display: flex; align-items: center;">
-                <div class="balance">
-                    <i class="fas fa-coins"></i> বোনাস: ১০০%
-                </div>
-                <div class="language-toggle" id="language-toggle">
-                    <span class="active" id="lang-bn">BN</span>
-                    <span>|</span>
-                    <span id="lang-en">EN</span>
-                </div>
+            <div class="balance">
+                <i class="fas fa-coins"></i> বোনাস: ১০০%
             </div>
         </header>
         
@@ -456,27 +519,58 @@
         <!-- ইমেজ স্লাইডার -->
         <div class="slider-container">
             <div class="slide slide-1">
-                <h3>স্বাগতম বোনাস</h3>
-                <p>১৫,০০০ টাকা পর্যন্ত ১০০% বোনাস পান আপনার প্রথম ডিপোজিটে</p>
-                <button class="slide-btn" onclick="window.open('https://1xbet.com', '_blank')">রেজিস্ট্রেশন করুন</button>
-            </div>
-            <div class="slide slide-2">
-                <h3>ক্র্যাশ গেম</h3>
-                <p>এক্সাইটিং ক্র্যাশ গেম খেলুন এবং বড় পুরস্কার জিতুন</p>
-                <button class="slide-btn" onclick="window.open('https://1xbet.com', '_blank')">ক্র্যাশ খেলুন</button>
-            </div>
-            <div class="slide slide-3">
+                <div class="slide-icon">
+                    <i class="fas fa-dice"></i>
+                </div>
                 <h3>স্লট গেমস</h3>
                 <p>১০০০+ স্লট গেমস উপভোগ করুন এবং জ্যাকপট জিতুন</p>
                 <button class="slide-btn" onclick="window.open('https://1xbet.com', '_blank')">স্লট খেলুন</button>
             </div>
-            <div class="slide slide-4">
+            <div class="slide slide-2">
+                <div class="slide-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
                 <h3>লাইভ ক্যাসিনো</h3>
                 <p>লাইভ ডিলারদের সাথে রিয়েল ক্যাসিনো অভিজ্ঞতা উপভোগ করুন</p>
                 <button class="slide-btn" onclick="window.open('https://1xbet.com', '_blank')">ক্যাসিনো খেলুন</button>
             </div>
+            <div class="slide slide-3">
+                <div class="slide-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>ক্র্যাশ গেম</h3>
+                <p>এক্সাইটিং ক্র্যাশ গেম খেলুন এবং বড় পুরস্কার জিতুন</p>
+                <button class="slide-btn" onclick="window.open('https://1xbet.com', '_blank')">ক্র্যাশ খেলুন</button>
+            </div>
+            <div class="slide slide-4">
+                <div class="slide-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h3>লাইভ গেমস</h3>
+                <p>বিভিন্ন লাইভ গেমস খেলে আনন্দ উপভোগ করুন</p>
+                <button class="slide-btn" onclick="window.open('https://1xbet.com', '_blank')">গেমস খেলুন</button>
+            </div>
         </div>
         
+        <!-- রেজিস্ট্রেশন সেকশন -->
+        <div class="card-section">
+            <h2>এখনই রেজিস্ট্রেশন করুন</h2>
+            <p>একটি অ্যাকাউন্ট তৈরি করুন এবং আশ্চর্যজনক বোনাস দিয়ে বেটিং শুরু করুন</p>
+            <button class="register-btn" onclick="window.open('https://1xbet.com', '_blank')">রেজিস্টার এখন</button>
+            
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <div class="payment-method">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="payment-method">
+                    <i class="fas fa-rocket"></i>
+                </div>
+            </div>
+        </div>
+
         <!-- Home Section -->
         <div id="home" class="section active">
             <div class="welcome-banner">
@@ -535,7 +629,7 @@
                         <p>ক্যাসিনো ডিপোজিটে ২০০% বোনাস</p>
                         <div class="promo-code">
                             <span class="code">CASINO200</span>
-                            <button class="copy-btn" data-code="CASINO200">কপি</button>
+                            <button class="copy-btn" data-code="CASINO200">कॉपी</button>
                         </div>
                     </div>
                     <div class="promo-item">
@@ -545,24 +639,6 @@
                             <span class="code">FRIDAY50</span>
                             <button class="copy-btn" data-code="FRIDAY50">কপি</button>
                         </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card-section">
-                <h2>এখনই রেজিস্ট্রেশন করুন</h2>
-                <p>একটি অ্যাকাউন্ট তৈরি করুন এবং আশ্চর্যজনক বোনাস দিয়ে বেটিং শুরু করুন</p>
-                <button class="register-btn" onclick="window.open('https://1xbet.com', '_blank')">রেজিস্টার এখন</button>
-                
-                <div class="payment-methods">
-                    <div class="payment-method">
-                        <i class="fas fa-money-bill-wave"></i>
-                    </div>
-                    <div class="payment-method">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <div class="payment-method">
-                        <i class="fas fa-rocket"></i>
                     </div>
                 </div>
             </div>
@@ -749,80 +825,18 @@
             });
         });
         
-        // Language toggle functionality
-        const languageToggle = document.getElementById('language-toggle');
-        const langBn = document.getElementById('lang-bn');
-        const langEn = document.getElementById('lang-en');
+        // Popup functionality
+        const popup = document.getElementById('popup');
+        const closePopup = document.getElementById('close-popup');
         
-        languageToggle.addEventListener('click', function() {
-            if (langBn.classList.contains('active')) {
-                langBn.classList.remove('active');
-                langEn.classList.add('active');
-                // Change to English
-                document.querySelector('.balance').innerHTML = '<i class="fas fa-coins"></i> Bonus: 100%';
-                document.querySelector('marquee').textContent = '🎉 Welcome to 1xBet Bangladesh! Get 100% bonus on your first deposit! 🎊 Live betting available on cricket, football, and more! ⚽🏏';
-                document.querySelector('.welcome-banner h2').textContent = 'Welcome Bonus up to 15,000 BDT!';
-                document.querySelector('.welcome-banner p').textContent = 'Register today and get 100% bonus on your first deposit';
-                document.querySelector('.section-title').textContent = 'Special Offers ⚡';
-                document.querySelector('.promo-header h2').textContent = 'Promo Codes 🎫';
-                document.querySelector('.promo-header span').textContent = 'Copy & Use';
-                document.querySelector('.card-section h2').textContent = 'Register Now';
-                document.querySelector('.card-section p').textContent = 'Create an account and start betting with amazing bonuses';
-                document.querySelector('.register-btn').textContent = 'Register Now';
-                document.querySelector('.bottom-nav .nav-item[data-target="home"] span').textContent = 'Home';
-                document.querySelector('.bottom-nav .nav-item[data-target="promo"] span').textContent = 'Promo Codes';
-                document.querySelector('.bottom-nav .nav-item[data-target="contact"] span').textContent = 'Contact';
-                
-                // Update slider text
-                document.querySelectorAll('.slide h3')[0].textContent = 'Welcome Bonus';
-                document.querySelectorAll('.slide p')[0].textContent = 'Get 100% bonus up to 15,000 BDT on your first deposit';
-                document.querySelectorAll('.slide-btn')[0].textContent = 'Register Now';
-                
-                document.querySelectorAll('.slide h3')[1].textContent = 'Crash Game';
-                document.querySelectorAll('.slide p')[1].textContent = 'Play exciting crash game and win big prizes';
-                document.querySelectorAll('.slide-btn')[1].textContent = 'Play Crash';
-                
-                document.querySelectorAll('.slide h3')[2].textContent = 'Slot Games';
-                document.querySelectorAll('.slide p')[2].textContent = 'Enjoy 1000+ slot games and win jackpots';
-                document.querySelectorAll('.slide-btn')[2].textContent = 'Play Slots';
-                
-                document.querySelectorAll('.slide h3')[3].textContent = 'Live Casino';
-                document.querySelectorAll('.slide p')[3].textContent = 'Experience real casino with live dealers';
-                document.querySelectorAll('.slide-btn')[3].textContent = 'Play Casino';
-            } else {
-                langEn.classList.remove('active');
-                langBn.classList.add('active');
-                // Change to Bengali
-                document.querySelector('.balance').innerHTML = '<i class="fas fa-coins"></i> বোনাস: ১০০%';
-                document.querySelector('marquee').textContent = '🎉 1xBet বাংলাদেশে স্বাগতম! প্রথম ডিপোজিটে ১০০% বোনাস পান! 🎊 ক্রিকেট, ফুটবল এবং আরও অনেক খেলায় লাইভ বেটিং উপলব্ধ! ⚽🏏';
-                document.querySelector('.welcome-banner h2').textContent = '১৫,০০০ টাকা পর্যন্ত স্বাগতম বোনাস!';
-                document.querySelector('.welcome-banner p').textContent = 'আজই রেজিস্ট্রেশন করুন এবং আপনার প্রথম ডিপোজিটে ১০০% বোনাস পান';
-                document.querySelector('.section-title').textContent = 'বিশেষ অফারগুলি ⚡';
-                document.querySelector('.promo-header h2').textContent = 'প্রোমো কোডগুলি 🎫';
-                document.querySelector('.promo-header span').textContent = 'কপি এবং ব্যবহার করুন';
-                document.querySelector('.card-section h2').textContent = 'এখনই রেজিস্ট্রেশন করুন';
-                document.querySelector('.card-section p').textContent = 'একটি অ্যাকাউন্ট তৈরি করুন এবং আশ্চর্যজনক বোনাস দিয়ে বেটিং শুরু করুন';
-                document.querySelector('.register-btn').textContent = 'রেজিস্টার এখন';
-                document.querySelector('.bottom-nav .nav-item[data-target="home"] span').textContent = 'হোম';
-                document.querySelector('.bottom-nav .nav-item[data-target="promo"] span').textContent = 'প্রোমো কোড';
-                document.querySelector('.bottom-nav .nav-item[data-target="contact"] span').textContent = 'যোগাযোগ';
-                
-                // Update slider text
-                document.querySelectorAll('.slide h3')[0].textContent = 'স্বাগতম বোনাস';
-                document.querySelectorAll('.slide p')[0].textContent = '১৫,০০০ টাকা পর্যন্ত ১০০% বোনাস পান আপনার প্রথম ডিপোজিটে';
-                document.querySelectorAll('.slide-btn')[0].textContent = 'রেজিস্ট্রেশন করুন';
-                
-                document.querySelectorAll('.slide h3')[1].textContent = 'ক্র্যাশ গেম';
-                document.querySelectorAll('.slide p')[1].textContent = 'এক্সাইটিং ক্র্যাশ গেম খেলুন এবং বড় পুরস্কার জিতুন';
-                document.querySelectorAll('.slide-btn')[1].textContent = 'ক্র্যাশ খেলুন';
-                
-                document.querySelectorAll('.slide h3')[2].textContent = 'স্লট গেমস';
-                document.querySelectorAll('.slide p')[2].textContent = '১০০০+ স্লট गেমস উপভোগ করুন এবং জ্যাকপট জিতুন';
-                document.querySelectorAll('.slide-btn')[2].textContent = 'স্লট খেলুন';
-                
-                document.querySelectorAll('.slide h3')[3].textContent = 'লাইভ ক্যাসিনো';
-                document.querySelectorAll('.slide p')[3].textContent = 'লাইভ ডিলারদের সাথে রিয়েল ক্যাসিনো অভিজ্ঞতা উপভোগ করুন';
-                document.querySelectorAll('.slide-btn')[3].textContent = 'ক্যাসিনো খেলুন';
+        closePopup.addEventListener('click', function() {
+            popup.classList.remove('active');
+        });
+        
+        // Close popup when clicking outside
+        popup.addEventListener('click', function(e) {
+            if (e.target === popup) {
+                popup.classList.remove('active');
             }
         });
     </script>
