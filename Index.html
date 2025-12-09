@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta property="og:title" content="Oxy Club - স্পোর্টস ও গেমিং">
-<meta property="og:description" content="বাংলাদেশের সবচেয়ে ট্রাস্টেড স্পোর্টস ও গেমিং প্ল্যাটফর্ম।">
-<meta property="og:image" content="https://bd1xbet.netlify.app/oxy.jpg">
-<meta property="og:url" content="https://bets66.netlify.app/">
-<meta property="og:type" content="website">
+    <meta property="og:description" content="বাংলাদেশের সবচেয়ে ট্রাস্টেড স্পোর্টস ও গেমিং প্ল্যাটফর্ম।">
+    <meta property="og:image" content="https://bd1xbet.netlify.app/oxy.jpg">
+    <meta property="og:url" content="https://bets66.netlify.app/">
+    <meta property="og:type" content="website">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oxy Club - স্পোর্টস ও গেমিং</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -234,6 +234,65 @@
             color: #1e90ff;
         }
         
+        /* Contact details styling */
+        .contact-details {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+        
+        .contact-details h3 {
+            font-size: 2rem;
+            color: #ffd700;
+            margin-bottom: 25px;
+        }
+        
+        .phone-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2ed573;
+            background: rgba(46, 213, 115, 0.1);
+            padding: 15px 30px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 20px;
+            border: 2px solid #2ed573;
+        }
+        
+        .whatsapp-imo {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .whatsapp-imo a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp {
+            background: linear-gradient(to right, #25D366, #128C7E);
+        }
+        
+        .imo {
+            background: linear-gradient(to right, #FF9500, #FF5E3A);
+        }
+        
+        .whatsapp:hover, .imo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
         /* Footer */
         footer {
             text-align: center;
@@ -298,6 +357,11 @@
             .contact-title {
                 font-size: 2rem;
             }
+            
+            .phone-number {
+                font-size: 1.5rem;
+                padding: 12px 20px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -327,6 +391,15 @@
             .contact-item {
                 padding: 20px;
             }
+            
+            .phone-number {
+                font-size: 1.3rem;
+            }
+            
+            .whatsapp-imo {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -347,7 +420,7 @@
     <!-- Buttons Section -->
     <div class="buttons-container">
         <a href="https://bdt20.net/" target="_blank" class="btn btn-1">
-            <i class="fas fa-cricket"></i> Bdt20.net
+            <i class="fas fa-baseball-ball"></i> Bdt20.net
         </a>
         
         <a href="https://goal90.live" target="_blank" class="btn btn-2">
@@ -365,10 +438,10 @@
         <div class="contact-info">
             <div class="contact-item">
                 <div class="contact-icon">
-                    <i class="fas fa-cricket"></i>
+                    <i class="fas fa-baseball-ball"></i>
                 </div>
                 <h3>Bdt20</h3>
-                <p> T20 ও ODI লিগের সম্পূর্ণ কভারেজ। BPL,IPL,Big Bash,PSL,CPL,ILT20,T10 ও বিভিন্ন সিরিজ লাইভ চলে।</p>
+                <p>T20 ও ODI লিগের সম্পূর্ণ কভারেজ। BPL, IPL, Big Bash, PSL, CPL, ILT20, T10 ও বিভিন্ন সিরিজ লাইভ চলে।</p>
                 <a href="https://bdt20.net/" target="_blank" class="website-link">www.bdt20.net</a>
             </div>
             
@@ -388,6 +461,24 @@
                 <h3>Gameon24</h3>
                 <p>গেমিং এবং ইস্পোর্টসের কেন্দ্রস্থল। গেম রিভিউ, টুর্নামেন্ট, এবং গেমিং কমিউনিটির সাথে যুক্ত থাকুন।</p>
                 <a href="https://gameon24.com" target="_blank" class="website-link">www.gameon24.com</a>
+            </div>
+        </div>
+        
+        <!-- যোগাযোগ তথ্য -->
+        <div class="contact-details">
+            <h3>যোগাযোগ করুন</h3>
+            <div class="phone-number">
+                <i class="fas fa-phone-alt"></i> 01619272711
+            </div>
+            <p style="margin-bottom: 20px; font-size: 1.1rem;">ইমো এবং WhatsApp-এ সরাসরি যোগাযোগ করুন</p>
+            
+            <div class="whatsapp-imo">
+                <a href="https://wa.me/8801619272711" target="_blank" class="whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp এ মেসেজ করুন
+                </a>
+                <a href="imo://chat?number=8801619272711" target="_blank" class="imo">
+                    <i class="fas fa-comment-dots"></i> ইমো এ যোগাযোগ করুন
+                </a>
             </div>
         </div>
     </div>
