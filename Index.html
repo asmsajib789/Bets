@@ -1,497 +1,95 @@
-
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta property="og:title" content="Oxy Club - স্পোর্টস ও গেমিং">
-    <meta property="og:description" content="বাংলাদেশের সবচেয়ে ট্রাস্টেড স্পোর্টস ও গেমিং প্ল্যাটফর্ম।">
-    <meta property="og:image" content="https://bd1xbet.netlify.app/oxy.jpg">
-    <meta property="og:url" content="https://bets66.netlify.app/">
-    <meta property="og:type" content="website">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oxy Club - স্পোর্টস ও গেমিং</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #0c2461, #1a1a2e);
-            color: #fff;
-            min-height: 100vh;
-            padding-bottom: 50px;
-        }
-        
-        /* Header styling */
-        header {
-            text-align: center;
-            padding: 30px 20px;
-            background: rgba(0, 0, 0, 0.4);
-            border-bottom: 3px solid #ff4757;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .logo {
-            font-size: 3.5rem;
-            font-weight: 800;
-            letter-spacing: 3px;
-            color: #ff4757;
-            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-            margin-bottom: 10px;
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-        
-        /* Marquee styling */
-        .marquee-container {
-            background: rgba(255, 71, 87, 0.15);
-            padding: 18px 0;
-            margin: 25px 0;
-            border-top: 2px solid rgba(255, 71, 87, 0.5);
-            border-bottom: 2px solid rgba(255, 71, 87, 0.5);
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .marquee {
-            font-size: 1.4rem;
-            font-weight: bold;
-            white-space: nowrap;
-            animation: marquee 15s linear infinite;
-            padding: 0 20px;
-            display: inline-block;
-        }
-        
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-        
-        /* Buttons styling */
-        .buttons-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
-        
-        .btn {
-            background: linear-gradient(to right, #ff4757, #ff6b81);
-            color: white;
-            text-decoration: none;
-            padding: 20px 40px;
-            border-radius: 12px;
-            font-size: 1.4rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            box-shadow: 0 8px 20px rgba(255, 71, 87, 0.3);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 280px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-        
-        .btn:hover::before {
-            left: 100%;
-        }
-        
-        .btn:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 15px 25px rgba(255, 71, 87, 0.4);
-        }
-        
-        .btn i {
-            margin-right: 15px;
-            font-size: 1.6rem;
-        }
-        
-        .btn-1 {
-            background: linear-gradient(to right, #ff4757, #ff6b81);
-        }
-        
-        .btn-2 {
-            background: linear-gradient(to right, #3742fa, #5352ed);
-        }
-        
-        .btn-3 {
-            background: linear-gradient(to right, #2ed573, #1dd1a1);
-        }
-        
-        /* Contact section styling */
-        .contact-container {
-            max-width: 1000px;
-            margin: 70px auto 30px;
-            background: rgba(255, 255, 255, 0.08);
-            padding: 45px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .contact-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: #ff4757;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .contact-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 4px;
-            background: linear-gradient(to right, #ff4757, #3742fa, #2ed573);
-            border-radius: 2px;
-        }
-        
-        .contact-info {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-        
-        .contact-item {
-            text-align: center;
-            flex: 1;
-            min-width: 280px;
-            padding: 25px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            transition: transform 0.3s ease;
-        }
-        
-        .contact-item:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .contact-icon {
-            font-size: 3rem;
-            color: #ff4757;
-            margin-bottom: 20px;
-        }
-        
-        .contact-item h3 {
-            font-size: 1.7rem;
-            margin-bottom: 15px;
-            color: #ffd700;
-        }
-        
-        .contact-item p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-        
-        .website-link {
-            display: inline-block;
-            margin-top: 10px;
-            color: #70a1ff;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .website-link:hover {
-            text-decoration: underline;
-            color: #1e90ff;
-        }
-        
-        /* Contact details styling */
-        .contact-details {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-        }
-        
-        .contact-details h3 {
-            font-size: 2rem;
-            color: #ffd700;
-            margin-bottom: 25px;
-        }
-        
-        .phone-number {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #2ed573;
-            background: rgba(46, 213, 115, 0.1);
-            padding: 15px 30px;
-            border-radius: 10px;
-            display: inline-block;
-            margin-bottom: 20px;
-            border: 2px solid #2ed573;
-        }
-        
-        .whatsapp-imo {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-        
-        .whatsapp-imo a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: white;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .whatsapp {
-            background: linear-gradient(to right, #25D366, #128C7E);
-        }
-        
-        .imo {
-            background: linear-gradient(to right, #FF9500, #FF5E3A);
-        }
-        
-        .whatsapp:hover, .imo:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 25px;
-            margin-top: 50px;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .footer-links {
-            margin-top: 15px;
-        }
-        
-        .footer-links a {
-            color: #ff6b81;
-            text-decoration: none;
-            margin: 0 15px;
-        }
-        
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Responsive design */
-        @media (max-width: 992px) {
-            .buttons-container {
-                gap: 25px;
-            }
-            
-            .btn {
-                min-width: 250px;
-                padding: 18px 35px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 2.8rem;
-            }
-            
-            .buttons-container {
-                flex-direction: column;
-                align-items: center;
-                margin: 40px auto;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 350px;
-            }
-            
-            .contact-container {
-                padding: 35px 25px;
-                margin: 50px 20px;
-            }
-            
-            .marquee {
-                font-size: 1.2rem;
-            }
-            
-            .contact-title {
-                font-size: 2rem;
-            }
-            
-            .phone-number {
-                font-size: 1.5rem;
-                padding: 12px 20px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 2.3rem;
-            }
-            
-            .tagline {
-                font-size: 1.1rem;
-            }
-            
-            .btn {
-                padding: 16px 30px;
-                font-size: 1.2rem;
-                min-width: auto;
-            }
-            
-            .btn i {
-                margin-right: 10px;
-                font-size: 1.4rem;
-            }
-            
-            .contact-title {
-                font-size: 1.8rem;
-            }
-            
-            .contact-item {
-                padding: 20px;
-            }
-            
-            .phone-number {
-                font-size: 1.3rem;
-            }
-            
-            .whatsapp-imo {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>BDReferralHub – Join Now</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:#f5f6fa;
+    }
+    .container{
+      max-width:500px;
+      margin:auto;
+      padding:20px;
+    }
+    h1{
+      text-align:center;
+      color:#1a237e;
+      margin-bottom:25px;
+    }
+    .card{
+      background:#fff;
+      border-radius:12px;
+      padding:20px;
+      margin-bottom:20px;
+      box-shadow:0 5px 15px rgba(0,0,0,.1);
+      text-align:center;
+    }
+    .card h2{
+      margin-bottom:15px;
+      color:#333;
+    }
+    .btn{
+      display:block;
+      padding:14px;
+      background:#1a237e;
+      color:#fff;
+      text-decoration:none;
+      border-radius:50px;
+      font-weight:bold;
+      transition:.3s;
+    }
+    .btn:hover{
+      background:#00c853;
+    }
+  </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <h1 class="logo">Oxy Club</h1>
-        <p class="tagline">Sponsor- Oxy11</p>
-        <p class="tagline">01619272711 imo Whatsapp</p>
-    </header>
-    
-    <!-- Marquee Section -->
-    <div class="marquee-container">
-        <div class="marquee">
-            🎮 Big-Bash Women & ILT20  টুর্নামেন্ট চলছে!  🔥 Oxy Club Exclusive - নতুন মেম্বার এখনি শুরু করুন ভাগ্য নির্ধারণ!
-        </div>
-    </div>
-    
-    <!-- Buttons Section -->
-    <div class="buttons-container">
-        <a href="https://bdt20.net/" target="_blank" class="btn btn-1">
-            <i class="fas fa-baseball-ball"></i> Bdt20.net
-        </a>
-        
-        <a href="https://goal90.live" target="_blank" class="btn btn-2">
-            <i class="fas fa-futbol"></i> Goal90.Live
-        </a>
-        
-        <a href="https://gameon24.com" target="_blank" class="btn btn-3">
-            <i class="fas fa-gamepad"></i> Gameon24.Com
-        </a>
-    </div>
-    
-    <!-- Contact Section -->
-    <div class="contact-container">
-        <h2 class="contact-title">আমাদের পার্টনার</h2>
-        <div class="contact-info">
-            <div class="contact-item">
-                <div class="contact-icon">
-                    <i class="fas fa-baseball-ball"></i>
-                </div>
-                <h3>Bdt20</h3>
-                <p>T20 ও ODI লিগের সম্পূর্ণ কভারেজ। BPL, IPL, Big Bash, PSL, CPL, ILT20, T10 ও বিভিন্ন সিরিজ লাইভ চলে।</p>
-                <a href="https://bdt20.net/" target="_blank" class="website-link">www.bdt20.net</a>
-            </div>
-            
-            <div class="contact-item">
-                <div class="contact-icon">
-                    <i class="fas fa-futbol"></i>
-                </div>
-                <h3>Goal90</h3>
-                <p>বিশ্ব ফুটবলের সর্বশেষ আপডেট, লাইভ স্কোর, ম্যাচ হাইলাইটস এবং বিশ্লেষণ। সব লিগ, সব টুর্নামেন্ট এক জায়গায়।</p>
-                <a href="https://goal90.live" target="_blank" class="website-link">www.goal90.live</a>
-            </div>
-            
-            <div class="contact-item">
-                <div class="contact-icon">
-                    <i class="fas fa-gamepad"></i>
-                </div>
-                <h3>Gameon24</h3>
-                <p>গেমিং এবং ইস্পোর্টসের কেন্দ্রস্থল। গেম রিভিউ, টুর্নামেন্ট, এবং গেমিং কমিউনিটির সাথে যুক্ত থাকুন।</p>
-                <a href="https://gameon24.com" target="_blank" class="website-link">www.gameon24.com</a>
-            </div>
-        </div>
-        
-        <!-- যোগাযোগ তথ্য -->
-        <div class="contact-details">
-            <h3>যোগাযোগ করুন</h3>
-            <div class="phone-number">
-                <i class="fas fa-phone-alt"></i> 01619272711
-            </div>
-            <p style="margin-bottom: 20px; font-size: 1.1rem;">ইমো এবং WhatsApp-এ সরাসরি যোগাযোগ করুন</p>
-            
-            <div class="whatsapp-imo">
-                <a href="https://wa.me/8801619272711" target="_blank" class="whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp এ মেসেজ করুন
-                </a>
-                <a href="imo://chat?number=8801619272711" target="_blank" class="imo">
-                    <i class="fas fa-comment-dots"></i> ইমো এ যোগাযোগ করুন
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Footer -->
-    <footer>
-        <p>কপিরাইট © ২০২৩ Oxy Club। সর্বস্বত্ব সংরক্ষিত।</p>
-        <div class="footer-links">
-            <a href="#">গোপনীয়তা নীতি</a>
-            <a href="#">সেবার শর্তাবলী</a>
-            <a href="#">সাহায্য</a>
-        </div>
-    </footer>
+
+<div class="container">
+  <h1>Join Betting Sites</h1>
+
+  <!-- 1xBet -->
+  <div class="card">
+    <h2>1xBet</h2>
+    <a class="btn" target="_blank"
+       href="https://refpa58144.com/L?tag=d_905607m_1236c_&site=905607&ad=1236&r=en">
+      Join Now
+    </a>
+  </div>
+
+  <!-- Linebet -->
+  <div class="card">
+    <h2>Linebet</h2>
+    <a class="btn" target="_blank"
+       href="https://lb-aff.com/L?tag=d_1050501m_22611c_&site=1050501&ad=22611">
+      Join Now
+    </a>
+  </div>
+
+  <!-- Melbet -->
+  <div class="card">
+    <h2>Melbet</h2>
+    <a class="btn" target="_blank"
+       href="https://refpa3665.com/L?tag=d_1298429m_18639c_&site=1298429&ad=18639">
+      Join Now
+    </a>
+  </div>
+
+  <!-- Planbet -->
+  <div class="card">
+    <h2>Planbet</h2>
+    <a class="btn" target="_blank"
+       href="https://plnbt.com/L?tag=d_4033205m_99037c_&site=4033205&ad=99037">
+      Join Now
+    </a>
+  </div>
+
+</div>
+
 </body>
 </html>
