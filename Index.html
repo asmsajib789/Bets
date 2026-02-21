@@ -1,10 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1xbet/Linebet/Melbet Via link</title>
+<title>BETB ONLINE - 1xBet / Linebet / Melbet</title>
+<meta name="description" content="Join 1xBet, Linebet, Melbet via official links. Claim your bonus instantly!">
+<meta name="keywords" content="1xBet, Linebet, Melbet, betting, casino, bonus">
+
+<!-- Open Graph / Social Share -->
+<meta property="og:title" content="BETB ONLINE - Join 1xBet, Linebet, Melbet">
+<meta property="og:description" content="Claim your bonus instantly via our official affiliate links!">
+<meta property="og:image" content="https://betb.live/preview.png">
+<meta property="og:url" content="https://betb.live">
 
 <style>
 *{
@@ -37,9 +44,9 @@ header{
   font-size:14px;
 }
 
-/* Card */
+/* Container & Card */
 .container{
-  padding:20px;
+  padding:15px;
 }
 
 .card{
@@ -47,9 +54,10 @@ header{
   margin-bottom:20px;
   padding:20px;
   border-radius:10px;
-  text-align:center;
+  text-align:left;
   box-shadow:0 0 10px rgba(0,0,0,0.4);
   transition:0.3s;
+  position:relative; /* For corner label */
 }
 
 .card:hover{
@@ -58,6 +66,10 @@ header{
 
 .card h2{
   margin-bottom:10px;
+}
+
+.card p{
+  font-size:14px;
 }
 
 .btn{
@@ -78,7 +90,21 @@ header{
   100%{box-shadow:0 0 5px #38bdf8;}
 }
 
-/* Center Popup Overlay */
+/* Recommend corner label */
+.recommend-corner{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:#ef4444; /* Red color */
+  color:#fff; /* White text */
+  padding:6px 12px;
+  border-radius:12px; /* Rounded corner */
+  font-weight:bold;
+  font-size:12px;
+  white-space:nowrap;
+}
+
+/* Popup */
 .popup-overlay{
   position:fixed;
   top:0;
@@ -121,8 +147,22 @@ footer{
   margin-top:20px;
 }
 </style>
-</head>
 
+<!-- FB Pixel Base Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID'); // Replace with your Pixel ID
+fbq('track', 'PageView');
+</script>
+
+</head>
 <body>
 
 <header>BETB ONLINE</header>
@@ -133,22 +173,34 @@ footer{
 
 <div class="container">
 
+<!-- 1xBet Card -->
 <div class="card">
-<h2>1xBet</h2>
-<p>Best Sports & Casino Platform</p>
-<a class="btn" href="https://refpa14435.com/L?tag=d_1616659m_1236c_&site=1616659&ad=1236&r=registration?type=fast&bonus=SPORT" target="_blank">Join 1xBet</a>
+  <div>
+    <h2>1xBet</h2>
+    <p>Best Sports & Casino Platform</p>
+    <a class="btn" href="https://refpa14435.com/L?tag=d_1616659m_1236c_&site=1616659&ad=1236&r=registration?type=fast&bonus=SPORT" target="_blank">Join 1xBet</a>
+  </div>
+  <div class="recommend-corner">Recommend</div>
 </div>
 
+<!-- Linebet Card -->
 <div class="card">
-<h2>Linebet</h2>
-<p>Trusted Betting Platform</p>
-<a class="btn" href="https://lb-aff.com/L?tag=d_1050501m_22611c_&site=1050501&ad=22611&r=en" target="_blank">Join Linebet</a>
+  <div>
+    <h2>Linebet</h2>
+    <p>Trusted Betting Platform</p>
+    <a class="btn" href="https://lb-aff.com/L?tag=d_1050501m_22611c_&site=1050501&ad=22611&r=en" target="_blank">Join Linebet</a>
+  </div>
+  <div class="recommend-corner">Recommend</div>
 </div>
 
+<!-- Melbet Card -->
 <div class="card">
-<h2>Melbet</h2>
-<p>Play Casino & Win Big</p>
-<a class="btn" href="https://refpa3665.com/L?tag=d_1298429m_18757c_&site=1298429&ad=18757&r=registration" target="_blank">Join Melbet</a>
+  <div>
+    <h2>Melbet</h2>
+    <p>Play Casino & Win Big</p>
+    <a class="btn" href="https://refpa3665.com/L?tag=d_1298429m_18757c_&site=1298429&ad=18757&r=registration" target="_blank">Join Melbet</a>
+  </div>
+  <div class="recommend-corner">Recommend</div>
 </div>
 
 </div>
@@ -163,17 +215,29 @@ footer{
 </div>
 
 <footer>
-© 2026 Update Via Link | All Rights Reserved
+© 2026 BETB ONLINE | All Rights Reserved
 </footer>
 
 <script>
-setTimeout(function(){
-  document.getElementById("popupAd").style.display="flex";
-},3000);
+// Popup once per session
+if(!localStorage.getItem('popupClosed')){
+  setTimeout(function(){
+    document.getElementById("popupAd").style.display="flex";
+  },3000);
+}
 
 function closePopup(){
   document.getElementById("popupAd").style.display="none";
+  localStorage.setItem('popupClosed', 'true');
 }
+
+// Affiliate Click Tracking
+document.querySelectorAll('.btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    console.log('Affiliate clicked:', this.href);
+    fbq('track', 'Lead'); // FB Pixel conversion track
+  });
+});
 </script>
 
 </body>
