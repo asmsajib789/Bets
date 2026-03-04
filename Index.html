@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,46 +24,6 @@
   <meta name="twitter:description" content="Claim your bonus instantly via our official links!">
   <meta name="twitter:image" content="https://betb.live/preview.png">
 
-  
-<!-- Header এর নিচে Slider / Banner -->
-<div id="banner-slider" style="max-width:1000px;margin:20px auto;position:relative;overflow:hidden;border-radius:12px;">
-  <div class="slides">
-    <a href="https://refpa14435.com/L?tag=d_905607m_1236c_&site=905607&ad=1236&r=en" target="_blank">
-      <img src="1xbet-banner.png" alt="Join 1xBet" style="width:100%;display:block;">
-    </a>
-    <a href="https://lb-aff.com/L?tag=d_1050501m_22611c_&site=1050501&ad=22611&r=en" target="_blank">
-      <img src="linebet-banner.png" alt="Join Linebet" style="width:100%;display:block;">
-    </a>
-    <a href="https://refpa3665.com/L?tag=d_1298429m_18757c_&site=1298429&ad=18757&r=registration" target="_blank">
-      <img src="melbet-banner.png" alt="Join Melbet" style="width:100%;display:block;">
-    </a>
-  </div>
-</div>
-
-<style>
-#banner-slider .slides > a { display:none; }
-#banner-slider .slides > a.active { display:block; }
-</style>
-
-<script>
-let currentSlide = 0;
-const slides = document.querySelectorAll('#banner-slider .slides > a');
-const totalSlides = slides.length;
-
-function showSlide(index) {
-  slides.forEach((slide,i)=>slide.classList.remove('active'));
-  slides[index].classList.add('active');
-}
-
-showSlide(currentSlide);
-
-setInterval(()=>{
-  currentSlide = (currentSlide + 1) % totalSlides;
-  showSlide(currentSlide);
-}, 3000); // 3 seconds per slide
-</script>
-
-  
 <style>
 *{
   margin:0;
@@ -195,6 +157,11 @@ footer{
   font-size:14px;
   margin-top:20px;
 }
+
+/* Banner Slider */
+#banner-slider { max-width:1000px; margin:20px auto; position:relative; overflow:hidden; border-radius:12px; }
+#banner-slider .slides > a { display:none; }
+#banner-slider .slides > a.active { display:block; }
 </style>
 
 <!-- FB Pixel Base Code -->
@@ -215,6 +182,22 @@ fbq('track', 'PageView');
 <body>
 
 <header>☆𝑩𝒆𝒔𝒕 𝑩𝒆𝒕𝒕𝒊𝒏𝒈 𝑺𝒊𝒕𝒆☆ </header>
+
+<!-- START: Header Slider -->
+<div id="banner-slider">
+  <div class="slides">
+    <a href="https://refpa14435.com/L?tag=d_1616659m_1236c_&site=1616659&ad=1236&r=registration?type=fast&bonus=SPORT" target="_blank">
+      <img src="1xbet-banner.png" alt="Join 1xBet" style="width:100%;display:block;">
+    </a>
+    <a href="https://lb-aff.com/L?tag=d_1050501m_22611c_&site=1050501&ad=22611&r=en" target="_blank">
+      <img src="linebet-banner.png" alt="Join Linebet" style="width:100%;display:block;">
+    </a>
+    <a href="https://refpa3665.com/L?tag=d_1298429m_18757c_&site=1298429&ad=18757&r=registration" target="_blank">
+      <img src="melbet-banner.png" alt="Join Melbet" style="width:100%;display:block;">
+    </a>
+  </div>
+</div>
+<!-- END: Header Slider -->
 
 <div class="top-ad">
 🌟We Recommend the Top 3 Betting Sites in the World🌟
@@ -288,6 +271,23 @@ document.querySelectorAll('.btn').forEach(function(btn){
     fbq('track', 'Lead'); // FB Pixel conversion track
   });
 });
+
+// Banner Slider JS
+let currentSlide = 0;
+const slides = document.querySelectorAll('#banner-slider .slides > a');
+const totalSlides = slides.length;
+
+function showSlide(index) {
+  slides.forEach((slide,i)=>slide.classList.remove('active'));
+  slides[index].classList.add('active');
+}
+
+showSlide(currentSlide);
+
+setInterval(()=>{
+  currentSlide = (currentSlide + 1) % totalSlides;
+  showSlide(currentSlide);
+}, 3000); // 3 seconds per slide
 </script>
 
 </body>
