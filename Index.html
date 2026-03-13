@@ -279,6 +279,98 @@ transform:scale(1.1);
 width:24px;
 height:24px;
 }
+
+  .live-chat-btn{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background:#38bdf8;
+  color:#000;
+  padding:10px 15px;
+  border-radius:8px;
+  font-weight:bold;
+  box-shadow:0 0 10px rgba(0,0,0,0.5);
+  cursor:pointer;
+  z-index:999;
+  transition:0.3s;
+}
+.live-chat-btn:hover{
+  transform: scale(1.05);
+  box-shadow:0 0 15px rgba(0,0,0,0.7);
+}
+
+.live-chat-popup{
+  display:none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 280px;
+  background: #1e293b;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow:0 0 15px rgba(0,0,0,0.5);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.chat-header{
+  background:#111827;
+  padding:10px;
+  font-weight:bold;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.chat-close{
+  cursor:pointer;
+}
+
+.chat-body{
+  padding:10px;
+}
+
+.chat-body button{
+  width:100%;
+  margin:5px 0;
+  padding:8px 10px;
+  border:none;
+  border-radius:6px;
+  background:#38bdf8;
+  color:#000;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+.chat-body button:hover{
+  background:#0ea5e9;
+}
+
+.chat-reply{
+  margin-top:10px;
+  padding:8px;
+  border-radius:6px;
+  min-height:30px;
+  text-align:center;
+  display:flex;
+  justify-content:space-around;
+}
+
+.chat-link{
+  background:#25D366; /* WhatsApp green for WhatsApp, Telegram blue for Telegram */
+  color:#fff;
+  padding:6px 12px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:0.3s;
+}
+.chat-link:nth-child(2){
+  background:#0088cc; /* Telegram blue */
+}
+.chat-link:hover{
+  opacity:0.8;
+}
 </style>
 
 <!-- FB Pixel -->
@@ -473,6 +565,28 @@ Withdraw request করার পরে Agent এর সাথে যোগা�
 ⚠ Disclaimer: This site provides access to international betting platforms. 
 Users must be 18+ and responsible for complying with their local laws.
 </p>
+  <!-- Live Chat Button -->
+<div class="live-chat-btn" onclick="openChat()">
+  💬 Live Chat
+</div>
+
+<!-- Live Chat Popup -->
+<div class="live-chat-popup" id="liveChatPopup">
+  <div class="chat-header">
+    Live Support
+    <span onclick="closeChat()" class="chat-close">✖</span>
+  </div>
+  <div class="chat-body">
+    <button onclick="sendReply('1xBet')">আমি 1xBet একাউন্ট করতে চাই</button>
+    <button onclick="sendReply('Linebet')">আমি Linebet একাউন্ট করতে চাই</button>
+    <button onclick="sendReply('Melbet')">আমি Melbet একাউন্ট করতে চাই</button>
+    
+    <div id="chatReply" class="chat-reply" style="display:none;">
+      <a href="https://wa.me/8801826444505" target="_blank" class="chat-link">💬 WhatsApp</a>
+      <a href="https://t.me/+MeoTD85pHfo5YzU1" target="_blank" class="chat-link">📨 Telegram</a>
+    </div>
+  </div>
+</div>
 <footer>
 © 2026 Online Bet | All Rights Reserved
 </footer>
@@ -503,6 +617,19 @@ showSlide(currentSlide);
 },3000);
 
 </script>
+  <script>
+function openChat(){
+  document.getElementById('liveChatPopup').style.display = 'block';
+}
+
+function closeChat(){
+  document.getElementById('liveChatPopup').style.display = 'none';
+}
+
+function sendReply(site){
+  document.getElementById('chatReply').style.display = 'flex';
+}
+  </script>
  
   <script>
 document.querySelectorAll(".faq-question").forEach(function(item){
@@ -522,5 +649,6 @@ document.querySelectorAll(".faq-question").forEach(function(item){
   });
 });
   </script>
+
 </body>
 </html>
