@@ -244,7 +244,46 @@ background:#3b82f6;
 .agent-btn:hover{
 opacity:0.9;
 }
-  
+
+  .faq-section{
+background:#1e293b;
+padding:20px;
+border-radius:12px;
+margin-top:20px;
+color:#fff;
+}
+
+.faq-section h2{
+text-align:center;
+margin-bottom:15px;
+color:#38bdf8;
+}
+
+.faq-item{
+margin-bottom:10px;
+}
+
+.faq-question{
+background:#0f172a;
+padding:12px;
+border-radius:8px;
+cursor:pointer;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.arrow{
+transition:0.3s;
+}
+
+.faq-answer{
+display:none;
+padding:10px;
+margin-top:5px;
+background:#020617;
+border-radius:8px;
+}
 </style>
 
 <!-- FB Pixel -->
@@ -388,6 +427,39 @@ bKash / Nagad / Rocket এর মাধ্যমে আমাদের <b>Verifi
 
   </div>
 
+  <div class="faq-section">
+
+<h2>❓ সাধারণ জিজ্ঞাসা (FAQ)</h2>
+
+<div class="faq-item">
+<div class="faq-question">
+কিভাবে একাউন্ট খুলবো? <span class="arrow">⬇</span>
+</div>
+<div class="faq-answer">
+আপনার পছন্দের সাইট (1xBet, Linebet বা Melbet) এর Register বাটনে ক্লিক করে সহজেই একাউন্ট তৈরি করতে পারবেন।
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">
+কিভাবে ডিপোজিট করবো? <span class="arrow">⬇</span>
+</div>
+<div class="faq-answer">
+আপনি আমাদের Agent এর মাধ্যমে bKash, Nagad বা Rocket দিয়ে সহজে ডিপোজিট করতে পারবেন।
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">
+কিভাবে টাকা উত্তোলন করবো? <span class="arrow">⬇</span>
+</div>
+<div class="faq-answer">
+Withdraw request করার পরে Agent এর সাথে যোগাযোগ করলে দ্রুত পেমেন্ট পাবেন।
+</div>
+</div>
+
+  </div>
+
 <footer>
 © 2026 Online Bet | All Rights Reserved
 </footer>
@@ -426,5 +498,23 @@ class="whatsapp-float" target="_blank">
   <a href="https://t.me/+MeoTD85pHfo5YzU1" class="telegram-float" target="_blank">
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Chat">
   </a>
+  <script>
+document.querySelectorAll(".faq-question").forEach(function(item){
+  item.addEventListener("click", function(){
+
+    const answer = this.nextElementSibling;
+    const arrow = this.querySelector(".arrow");
+
+    if(answer.style.display === "block"){
+      answer.style.display = "none";
+      arrow.style.transform = "rotate(0deg)";
+    }else{
+      answer.style.display = "block";
+      arrow.style.transform = "rotate(180deg)";
+    }
+
+  });
+});
+  </script>
 </body>
 </html>
