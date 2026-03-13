@@ -371,6 +371,39 @@ height:24px;
 .chat-link:hover{
   opacity:0.8;
 }
+  .wa-popup{
+position:fixed;
+bottom:20px;
+right:20px;
+display:none;
+align-items:center;
+gap:10px;
+z-index:999;
+}
+
+.wa-message{
+background:#25D366;
+color:#fff;
+padding:10px 14px;
+border-radius:20px;
+font-size:13px;
+box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
+.wa-popup img{
+width:55px;
+height:55px;
+border-radius:50%;
+box-shadow:0 0 10px rgba(0,0,0,0.4);
+animation:waPulse 1.5s infinite;
+cursor:pointer;
+}
+
+@keyframes waPulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.1);}
+100%{transform:scale(1);}
+}
 </style>
 
 <!-- FB Pixel -->
@@ -587,6 +620,14 @@ Users must be 18+ and responsible for complying with their local laws.
     </div>
   </div>
 </div>
+  <div class="wa-popup" id="waPopup">
+  <div class="wa-message">
+    Hi 👋 Need help creating your betting account?
+  </div>
+  <a href="https://wa.me/8801826444505?text=Hello%20I%20want%20to%20create%20account" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+  </a>
+  </div>
 <footer>
 © 2026 Online Bet | All Rights Reserved
 </footer>
@@ -648,6 +689,13 @@ document.querySelectorAll(".faq-question").forEach(function(item){
 
   });
 });
+  </script>
+  <script>
+
+setTimeout(function(){
+document.getElementById("waPopup").style.display="flex";
+},5000);
+
   </script>
 
 </body>
