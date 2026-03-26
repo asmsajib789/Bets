@@ -44,24 +44,29 @@ color:#38bdf8;
   .marquee {
   width: 100%;
   background: #020617;
-  color: #38bdf8;
   overflow: hidden;
+  position: relative;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-content {
   white-space: nowrap;
+  color: #38bdf8;
   font-size: 14px;
   font-weight: bold;
-  border-top: 1px solid #1e293b;
-  border-bottom: 1px solid #1e293b;
+  position: absolute;
+  animation: scrollText 12s linear infinite;
 }
 
-.marquee {
-  display: inline-block;
-  padding: 10px 0;
-  animation: marqueeScroll 12s linear infinite;
-}
-
-@keyframes marqueeScroll {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+@keyframes scrollText {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
 }
 .top-ad{
 background:#1e293b;
@@ -448,9 +453,12 @@ fbq('track','PageView');
 <body>
 
 <header>☆☆𝐁𝐞𝐭𝐛.𝐋𝐢𝐯𝐞☆☆</header>
+
   <div class="marquee">
-  🔥 Promo Code: Oxy11 | 🎁 100% Bonus | 💸 Fast Deposit & Withdraw | 🚀 Join Now & Earn 💰
+  <div class="marquee-content">
+    🔥 Promo Code: Oxy11 | 🎁 100% Bonus | 💸 Fast Deposit & Withdraw | 🚀 Join Now Now
   </div>
+</div>
 
 <!-- Banner Slider -->
 <div id="banner-slider">
